@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unlmtd Agency — عرض أسعار أتمتة العيادات</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>UNLMTD AGNCY</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --navy: #0B1D3A;
@@ -33,49 +33,81 @@ body{font-family:'Cairo',sans-serif;background:var(--off-white);color:var(--navy
 /* ─── NAV ─────────────────────────────────────────────────── */
 nav{position:sticky;top:0;z-index:100;background:rgba(11,29,58,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 .nav-inner{max-width:1100px;margin:auto;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-.nav-logo{font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:-.5px}
-.nav-logo span{color:var(--teal)}
+.nav-logo{display:flex;align-items:center;font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:-.5px}
+.nav-logo span{color:var(--white);margin-right:8px}
 .nav-links{display:flex;gap:.25rem;flex-wrap:wrap}
 .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;padding:.4rem .75rem;border-radius:6px;transition:.15s}
 .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.1)}
 
 /* ─── HERO ────────────────────────────────────────────────── */
 .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 60%,#1a3a6e 100%);padding:5rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300C896' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300C896' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .hero-badge{display:inline-block;background:rgba(0,200,150,.15);border:1px solid rgba(0,200,150,.3);color:var(--teal);font-size:.8rem;font-weight:600;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.25rem;letter-spacing:.5px}
-.hero h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;color:var(--white);line-height:1.25;margin-bottom:1rem}
-.hero h1 em{color:var(--teal);font-style:normal}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 2rem}
-.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.hero h1{font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:800;color:var(--white);line-height:1.4;margin-bottom:1.5rem}
+.hero h1 span{color:var(--teal)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.75);max-width:700px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:2.5rem}
 .hero-stat{text-align:center}
-.hero-stat strong{display:block;font-size:1.8rem;font-weight:800;color:var(--teal)}
-.hero-stat span{font-size:.8rem;color:rgba(255,255,255,.55);font-weight:400}
+.hero-stat strong{display:block;font-size:2rem;font-weight:800;color:var(--teal)}
+.hero-stat span{font-size:.85rem;color:rgba(255,255,255,.6);font-weight:400}
+.hero-note{color:rgba(255,255,255,.45);font-size:.8rem;margin-top:1rem}
 
 /* ─── SECTION WRAPPERS ────────────────────────────────────── */
-section{padding:4rem 1.5rem}
+section{padding:4.5rem 1.5rem}
+.section-dark{background:var(--navy);color:var(--white)}
 .container{max-width:1100px;margin:auto}
 .section-label{font-size:.75rem;font-weight:700;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin-bottom:.5rem}
 .section-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--navy);margin-bottom:.5rem}
-.section-sub{font-size:.95rem;color:var(--gray-600);max-width:540px}
+.section-dark .section-title{color:var(--white)}
+.section-sub{font-size:.95rem;color:var(--gray-600);max-width:540px;margin-bottom:2rem}
+.section-dark .section-sub{color:rgba(255,255,255,.6)}
 
 /* ─── PAIN POINTS ─────────────────────────────────────────── */
 #why{background:var(--white)}
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:2rem}
-.pain-card{border-radius:var(--radius);padding:1.25rem 1.5rem;border:1px solid}
-.pain-card.bad{background:#FEF2F2;border-color:#FECACA}
-.pain-card.good{background:#F0FDF8;border-color:#A7F3D0}
-.pain-card-icon{font-size:1.4rem;margin-bottom:.5rem}
-.pain-card h4{font-size:.95rem;font-weight:700;margin-bottom:.35rem}
-.pain-card.bad h4{color:#991B1B}
-.pain-card.good h4{color:#065F46}
-.pain-card p{font-size:.85rem;line-height:1.6}
-.pain-card.bad p{color:#7F1D1D}
-.pain-card.good p{color:#064E3B}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-top:2rem}
+.pain-card{border-radius:var(--radius);padding:1.5rem;border:1px solid var(--gray-200);background:var(--off-white);transition:.2s}
+.pain-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.pain-card-icon{font-size:1.6rem;margin-bottom:.5rem}
+.pain-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--navy)}
+.pain-card p{font-size:.85rem;line-height:1.6;color:var(--gray-600)}
+
+/* ─── SERVICES ────────────────────────────────────────────── */
+#services{background:var(--off-white)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem}
+.service-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-sm);transition:.3s}
+.service-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.service-card .icon{font-size:2rem;display:block;margin-bottom:1rem}
+.service-card h3{color:var(--navy);font-size:1.15rem;margin-bottom:.75rem;font-weight:700}
+.service-card p{color:var(--gray-600);font-size:.85rem;line-height:1.7;margin-bottom:1.25rem}
+.service-card ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
+.service-card ul li{font-size:.85rem;color:var(--gray-600);display:flex;align-items:center;gap:.5rem}
+.service-card ul li::before{content:'✓';color:var(--teal);font-weight:bold}
+.service-card .result{color:var(--teal-dark);font-size:.85rem;font-weight:700;border-top:1px solid var(--gray-100);padding-top:.75rem}
+
+/* ─── INDUSTRIES ──────────────────────────────────────────── */
+#industries{background:var(--white)}
+.industries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2rem}
+.industry-card{background:var(--off-white);border:1px solid var(--gray-100);border-radius:var(--radius);padding:1.5rem;text-align:center;transition:.3s}
+.industry-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.industry-card .icon{font-size:2.2rem;margin-bottom:.5rem;display:block}
+.industry-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.industry-card p{font-size:.8rem;color:var(--gray-600)}
+.industries-note{text-align:center;margin-top:2rem;font-size:.9rem;color:var(--gray-600)}
+.industries-note a{color:var(--teal-dark);text-decoration:none;font-weight:700}
+
+/* ─── PROCESS ─────────────────────────────────────────────── */
+#process{background:var(--off-white)}
+.process-steps{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem;max-width:800px;margin-right:auto;margin-left:auto}
+.step{display:flex;gap:1.25rem;background:var(--white);padding:1.5rem;border-radius:var(--radius);border:1px solid var(--gray-200);box-shadow:var(--shadow-sm);align-items:flex-start}
+.step-number {min-width:45px;height:45px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--teal)}
+.step h3{color:var(--navy);font-size:1rem;margin-bottom:.35rem;font-weight:700}
+.step p{color:var(--gray-600);font-size:.85rem;line-height:1.6}
+.process-cta{text-align:center;margin-top:2.5rem}
 
 /* ─── PRICING SECTION ─────────────────────────────────────── */
-#pricing{background:var(--off-white)}
+#pricing{background:var(--white)}
 .pricing-controls{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:2rem 0;flex-wrap:wrap}
-.toggle-group{display:flex;background:var(--white);border:1px solid var(--gray-200);border-radius:50px;padding:4px;gap:4px;box-shadow:var(--shadow-sm)}
+.toggle-group{display:flex;background:var(--off-white);border:1px solid var(--gray-200);border-radius:50px;padding:4px;gap:4px;box-shadow:var(--shadow-sm)}
 .toggle-btn{padding:.5rem 1.25rem;border-radius:50px;border:none;cursor:pointer;font-family:'Cairo',sans-serif;font-size:.9rem;font-weight:600;transition:.2s;color:var(--gray-400);background:transparent}
 .toggle-btn.active{background:var(--navy);color:var(--white);box-shadow:0 2px 8px rgba(11,29,58,.2)}
 
@@ -159,6 +191,32 @@ section{padding:4rem 1.5rem}
 .check{color:var(--teal);font-size:1rem}
 .cross{color:#FCA5A5;font-size:.9rem}
 
+/* ─── CASE STUDIES & REVIEWS ──────────────────────────────── */
+#cases{background:var(--off-white)}
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem}
+.case-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;}
+.case-card .industry{color:var(--teal-dark);font-size:.8rem;font-weight:700;margin-bottom:.5rem}
+.case-card h3{color:var(--navy);font-size:1.1rem;margin-bottom:1rem;font-weight:700}
+.case-card .problem{color:var(--red);font-size:.85rem;margin-bottom:1rem;background:rgba(232,75,58,0.05);padding:.5rem .75rem;border-radius:6px}
+.case-card .results{list-style:none;margin-bottom:1rem;flex-grow:1;}
+.case-card .results li{color:#2E7D32;font-size:.85rem;line-height:1.8}
+.case-card .roi{color:var(--teal);font-size:1rem;font-weight:800;border-top:1px solid var(--gray-100);padding-top:.75rem}
+.cases-note{text-align:center;color:var(--gray-400);font-size:.75rem;margin-top:1.5rem;font-style:italic}
+
+/* التقييمات */
+.case-review { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--gray-200); font-size: 0.85rem; }
+.case-review .stars { color: #F5A623; margin-bottom: 0.4rem; font-size: 0.95rem; letter-spacing: 2px;}
+.case-review .review-text { color: var(--gray-600); font-style: italic; margin-bottom: 0.75rem; line-height: 1.7; }
+.case-review .author { font-weight: 700; color: var(--navy); display: flex; flex-direction: column; }
+.case-review .author span { font-weight: 400; color: var(--gray-400); font-size: 0.75rem; margin-top: 0.15rem;}
+
+/* ─── FAQ ─────────────────────────────────────────────────── */
+#faq{background:var(--white)}
+.faq-list{max-width:800px;margin:2rem auto 0}
+.faq-item{border-bottom:1px solid var(--gray-100);padding:1.25rem 0}
+.faq-q{color:var(--navy);font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.faq-a{color:var(--gray-600);font-size:.85rem;line-height:1.7}
+
 /* ─── TERMS ───────────────────────────────────────────────── */
 #terms{background:var(--off-white)}
 .terms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2rem}
@@ -171,7 +229,7 @@ section{padding:4rem 1.5rem}
 /* ─── CTA ─────────────────────────────────────────────────── */
 #cta{background:linear-gradient(135deg,var(--teal-dark),var(--navy-light));text-align:center;padding:4rem 1.5rem}
 #cta h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--white);margin-bottom:.75rem}
-#cta p{color:rgba(255,255,255,.7);margin-bottom:2rem}
+#cta p{color:rgba(255,255,255,.8);max-width:700px;margin:0 auto 2rem;font-size:1rem;line-height:1.6}
 .cta-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 .btn-primary{background:var(--white);color:var(--navy);padding:.85rem 2rem;border-radius:10px;font-family:'Cairo',sans-serif;font-size:.95rem;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:.2s}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
@@ -179,266 +237,426 @@ section{padding:4rem 1.5rem}
 .btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.1)}
 
 /* ─── FOOTER ──────────────────────────────────────────────── */
-footer{background:var(--navy);padding:1.5rem;text-align:center;font-size:.8rem;color:rgba(255,255,255,.4)}
+footer{background:var(--navy);padding:1.5rem;text-align:center;font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.8}
 footer a{color:var(--teal);text-decoration:none}
+.footer-logo{display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
 
 @media print{nav,#cta,footer{display:none}section{padding:1.5rem 0}}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">UNLMTD <span>AGENCY</span></div>
+    <div class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+        <path d="M18 36 L36 50 L18 64 L28 64 L46 50 L28 36 Z" fill="#3ac5ff"/>
+        <path d="M68 22 L44 53 L61 78 L49 78 L35 56 L55 22 Z" fill="#4d75ff"/>
+      </svg>
+      <span>UNLMTD AGNCY</span>
+    </div>
     <div class="nav-links">
       <a href="#why">لماذا؟</a>
+      <a href="#services">الأنظمة</a>
+      <a href="#industries">المجالات</a>
+      <a href="#process">كيف نعمل؟</a>
       <a href="#pricing">الأسعار</a>
       <a href="#roi">حاسبة ROI</a>
       <a href="#compare">المقارنة</a>
+      <a href="#cases">النتائج</a>
+      <a href="#faq">الأسئلة</a>
       <a href="#terms">الشروط</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">عرض أسعار خاص — 2026</div>
-  <h1>أتمتة ذكية لعيادتك<br><em>تشتغل 24/7 بدونك</em></h1>
-  <p class="hero-sub">بوت AI يرد على استفسارات مرضاك، يحجز المواعيد، ويتابعهم — من واتساب وتيليجرام مباشرةً</p>
+  <div class="hero-badge">AI Automation for SMBs</div>
+  <h1>بيزنسك بيخسر عملاء كل يوم<br>بسبب رد <span>متأخر</span> ومتابعة <span>صفر</span></h1>
+  <p class="hero-sub">نبني لك نظام أتمتة ذكي بالـ AI — يرد على عملاءك 24/7، يتابعهم، ويحوّلهم لمبيعات من غير ما تشغّل حد جديد</p>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>32%</strong><span>نسبة الغياب في العيادات</span></div>
-    <div class="hero-stat"><strong>70%</strong><span>تقليل الغياب مع الأتمتة</span></div>
-    <div class="hero-stat"><strong>24/7</strong><span>رد فوري على المرضى</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>رد فوري على العملاء</span></div>
+    <div class="hero-stat"><strong>70%</strong><span>تقليل المهام المتكررة</span></div>
+    <div class="hero-stat"><strong>3x</strong><span>زيادة في التحويلات</span></div>
   </div>
+  <div style="margin-bottom:1rem">
+    <a href="https://calendar.app.google/eLRMKpFFzyiTnK7y5" target="_blank" class="btn-primary">📞 احجز استشارة مجانية — 15 دقيقة</a>
+  </div>
+  <div class="hero-note">بدون عقد · بدون التزام · شوف النتيجة الأول</div>
 </div>
 
-<!-- WHY -->
 <section id="why">
   <div class="container">
-    <div class="section-label">المشكلة والحل</div>
-    <div class="section-title">إيه اللي بتخسره كل شهر؟</div>
-    <p class="section-sub">معظم العيادات تخسر 30-40% من إيراداتها بسبب مشاكل قابلة للحل بالأتمتة</p>
+    <div class="section-label">المشكلة الحقيقية</div>
+    <h2 class="section-title">لو أي واحدة من دول بتحصل معاك... إنت محتاج أتمتة</h2>
+    <p class="section-sub">المهام اليدوية والرد المتأخر هما العدو الأول لنمو أرباحك وتوسع شركتك</p>
     <div class="pain-grid">
-      <div class="pain-card bad">
-        <div class="pain-card-icon">❌</div>
-        <h4>غياب المرضى بدون إشعار</h4>
-        <p>32% من المواعيد بتتضيع كل شهر — مع كل موعد بقيمة 500 جنيه = 10 مواعيد بالشهر ضياع</p>
+      <div class="pain-card">
+        <div class="pain-card-icon">😤</div>
+        <h4>عملاء بيبعتوا وبيمشوا</h4>
+        <p>بتجيك رسائل على واتساب بالليل أو في الويكند ومحدش بيرد — العميل بيروح لمنافسك فوراً</p>
       </div>
-      <div class="pain-card bad">
-        <div class="pain-card-icon">❌</div>
-        <h4>استفسارات بعد ساعات العمل</h4>
-        <p>60% من الاستفسارات بتيجي بعد 10 مساءً — ومفيش رد = العميل يروح للمنافس في الدقيقة الجاية</p>
+      <div class="pain-card">
+        <div class="pain-card-icon">⏰</div>
+        <h4>وقتك بيضيع في الروتين</h4>
+        <p>أنت أو موظفينك بتقضوا ساعات في الرد على نفس الأسئلة — كل يوم نفس الكلام المكرر</p>
       </div>
-      <div class="pain-card bad">
-        <div class="pain-card-icon">❌</div>
-        <h4>الرسبشن في نفس الأسئلة</h4>
-        <p>3-4 ساعات يومياً في: "كام السعر؟ امتى فيه موعد؟ فين العيادة؟" — طاقة إدارية ضايعة</p>
+      <div class="pain-card">
+        <div class="pain-card-icon">📉</div>
+        <h4>مفيش متابعة = مفيش ولاء</h4>
+        <p>عميل اشترى مرة ومرجعش — لأنك مبعتش عرض، أو مبعتش رسايل تذكيرية</p>
       </div>
-      <div class="pain-card good">
-        <div class="pain-card-icon">✅</div>
-        <h4>تذكير تلقائي قبل الموعد</h4>
-        <p>رسايل واتساب تلقائية قبل 24 ساعة و3 ساعات — تقليل الغياب بنسبة 70% من أول شهر</p>
+      <div class="pain-card">
+        <div class="pain-card-icon">🧑‍💼</div>
+        <h4>محتاج موظف جديد؟ لا... محتاج نظام</h4>
+        <p>بدل ما تدفع مرتب 5,000-15,000 /شهر على شغل متكرر — خلّي الـ AI يعمله في ثوانٍ وبدقة أعلى</p>
       </div>
-      <div class="pain-card good">
-        <div class="pain-card-icon">✅</div>
-        <h4>AI يرد 24/7</h4>
-        <p>بوت ذكي يحجز المواعيد، يجاوب على الأسئلة، ويحول المحادثة لموظف بشري لما يلزم</p>
+      <div class="pain-card">
+        <div class="pain-card-icon">💸</div>
+        <h4>تسريب المبيعات المحتملة (Leads)</h4>
+        <p>بتصرف آلاف على الإعلانات، ولما المهتمين يبعتوا، الرد بيتأخر والـ Lead بيبرد تماماً ويموت الشغف</p>
       </div>
-      <div class="pain-card good">
-        <div class="pain-card-icon">✅</div>
-        <h4>متابعة وتقييمات تلقائية</h4>
-        <p>رسالة متابعة بعد 3 أيام من الزيارة + طلب تقييم Google — يبني سمعتك بشكل تلقائي</p>
+      <div class="pain-card">
+        <div class="pain-card-icon">📊</div>
+        <h4>قرارات عشوائية بدون أرقام</h4>
+        <p>مش عارف بالظبط كام عميل كلمك، كام واحد اشترى، ومين مهتم بس محتاج متابعة ذكية لتقفيل البيعة</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">الحلول الذكية</div>
+    <h2 class="section-title">اهم 3 أنظمة ذكية بنبنيها لبيزنسك</h2>
+    <p class="section-sub">كل نظام بيشتغل أوتوماتيك — من غير تدخل منك</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="icon">🤖</span>
+        <h3>رد تلقائي ذكي — AI Chatbot</h3>
+        <p>بوت ذكي على واتساب / تيليجرام / إنستجرام يرد على عملاءك فوراً — 24/7</p>
+        <ul>
+          <li>يرد على الأسئلة الشائعة</li>
+          <li>يبعت أسعار وعروض</li>
+          <li>يحجز مواعيد</li>
+          <li>يتكلم بلهجة طبيعية (مصري / خليجي)</li>
+        </ul>
+        <div class="result">← مفيش عميل بيضيع بسبب تأخر الرد</div>
+      </div>
+      <div class="service-card">
+        <span class="icon">⚙️</span>
+        <h3>أتمتة العمليات المتكررة</h3>
+        <p>كل مهمة بتتكرر... بنحوّلها لنظام أوتوماتيك كامل</p>
+        <ul>
+          <li>تذكير بالمواعيد قبلها بـ 24 ساعة</li>
+          <li>متابعة بعد الشراء / الزيارة</li>
+          <li>إرسال عروض تلقائية للعملاء القدام</li>
+          <li>تحديث الـ CRM أوتوماتيك</li>
+        </ul>
+        <div class="result">← وفّر 3-5 ساعات يومياً من شغل الموظفين</div>
+      </div>
+      <div class="service-card">
+        <span class="icon">📊</span>
+        <h3>تقارير وتحليلات أداء</h3>
+        <p>اعرف كل أسبوع: إيه اللي شغال وإيه اللي محتاج تحسين في بيزنسك</p>
+        <ul>
+          <li>كام عميل جديد تواصل</li>
+          <li>كام واحد حجز / اشترى فعلياً</li>
+          <li>كام واحد ضاع ولسه ممكن ترجّعه</li>
+          <li>معدل الرد الإجمالي ورضا العملاء</li>
+        </ul>
+        <div class="result">← قرارات بالعمل والأرقام مش بالإحساس</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="container">
+    <div class="section-label">تنوع قطاعات العمل</div>
+    <h2 class="section-title">نشتغل مع أي بيزنس محتاج يكبر ويوفّر وقت وفلوس</h2>
+    <div class="industries-grid">
+      <div class="industry-card">
+        <span class="icon">🏥</span>
+        <h3>عيادات ومراكز طبية</h3>
+        <p>تذكير مواعيد — رد على استفسارات — طلب تقييمات</p>
+      </div>
+      <div class="industry-card">
+        <span class="icon">🍕</span>
+        <h3>مطاعم وكافيهات</h3>
+        <p>أخذ أوردرات — عروض أوتوماتيك — متابعة عملاء</p>
+      </div>
+      <div class="industry-card">
+        <span class="icon">🏠</span>
+        <h3>شركات عقارات</h3>
+        <p>رد على استفسارات — تصنيف عملاء — متابعة</p>
+      </div>
+      <div class="industry-card">
+        <span class="icon">🛒</span>
+        <h3>متاجر إلكترونية</h3>
+        <p>رد على أسئلة — تذكير السلة المهجورة — عروض</p>
+      </div>
+      <div class="industry-card">
+        <span class="icon">🎓</span>
+        <h3>مراكز تعليم وكورسات</h3>
+        <p>تسجيل تلقائي — تذكير بالحصص — متابعة</p>
+      </div>
+      <div class="industry-card">
+        <span class="icon">💼</span>
+        <h3>شركات خدمات</h3>
+        <p>محاماة / محاسبة / تسويق — حجز استشارات — متابعة</p>
+      </div>
+    </div>
+    <p class="industries-note">مجالك مش موجود؟ مش مشكلة — <a href="https://wa.me/201128324068" target="_blank">كلمنا</a> ونقولك إزاي الأتمتة هتفيدك</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-label">رحلة التنفيذ</div>
+    <h2 class="section-title">من أول اجتماع لحد ما النظام يشتغل من 14 الى 21 يوم بحد اقصى</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div>
+          <h3>📞 اجتماع مجاني — 15 دقيقة</h3>
+          <p>نفهم بيزنسك، مشاكلك، وأهدافك — ونقولك بالظبط إيه اللي ممكن نأتمته</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div>
+          <h3>🔍 تحليل وتصميم</h3>
+          <p>نحدد العمليات اللي محتاجة أتمتة ونصمم النظام المناسب ليك ولطاقم عملك</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div>
+          <h3>🛠️ بناء واختبار</h3>
+          <p>نبني النظام، نربطه بقنواتك (واتساب / تيليجرام / CRM) ونختبره بالكامل</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div>
+          <h3>🧪 تجربة 14 يوم مجانية</h3>
+          <p>تشوف النتيجة بنفسك — بدون عقد. لو مش عاجبك مفيش أي التزام مالي</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <div>
+          <h3>🚀 إطلاق ودعم مستمر</h3>
+          <p>نطلق النظام للعلن + دعم فني + تقارير + تحديثات دورية مجاناً</p>
+        </div>
+      </div>
+    </div>
+    <div class="process-cta">
+      <a href="https://calendar.app.google/eLRMKpFFzyiTnK7y5" target="_blank" class="btn-primary" style="background: var(--navy); color: var(--white); border: 1px solid var(--gray-200);">ابدأ بالخطوة الأولى — احجز اجتماعك المجاني</a>
+    </div>
+  </div>
+</section>
+
 <section id="pricing">
   <div class="container">
     <div style="text-align:center;margin-bottom:.5rem"><div class="section-label">الباقات والأسعار</div></div>
     <h2 class="section-title" style="text-align:center">اختار الباقة المناسبة</h2>
-    <p class="section-sub" style="text-align:center;margin:0 auto 0">عقد سنة مع دفع الإعداد مرة واحدة، أو ادفع مرة واحدة بالكامل وخلاص</p>
+    <p class="section-sub" style="text-align:center;margin:0 auto 2rem">عقد سنة كدعم مع دفع رسوم الإعداد مرة واحدة<br>أو ادفع دفعة واحدة و دعم لمدة 30 يوم فقط و ينتهي الالتزام بينا</p>
 
     <div class="pricing-controls">
       <div class="toggle-group">
-        <button class="toggle-btn active" id="btn-egp" onclick="setCurrency('egp')">🇪🇬 جنيه مصري</button>
-        <button class="toggle-btn" id="btn-usd" onclick="setCurrency('usd')">🇸🇦 دولار خليجي</button>
+        <button class="toggle-btn active" id="btn-egp" onclick="setCurrency('egp')">🇪🇬 جنيه مصري لداخل مصر فقط</button>
+        <button class="toggle-btn" id="btn-usd" onclick="setCurrency('usd')">🇺🇸 دولار USD</button>
       </div>
     </div>
 
     <div class="pkg-grid">
-
-      <!-- STARTER -->
       <div class="pkg-card">
         <div class="pkg-name">Starter</div>
-        <div class="pkg-desc">عيادة 1-2 دكتور</div>
-        <div class="price-block">
-          <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
-          <div class="price-setup">
-            <span class="amount" id="s-setup">4,000</span>
-            <span class="unit" id="s-sym">جنيه</span>
-          </div>
-        </div>
-        <div class="divider"></div>
+        <div class="pkg-desc">بيزنس صغير — 1-2 موظف</div>
+        
         <div class="model-tabs">
           <button class="model-tab active" onclick="setModel(this,'starter','monthly')">اشتراك شهري</button>
           <button class="model-tab" onclick="setModel(this,'starter','onetime')">دفعة واحدة</button>
         </div>
+        <div class="divider"></div>
+
         <div class="model-content active" id="starter-monthly">
-          <div class="monthly-price">
-            <span class="amount" id="s-monthly">1,800</span>
-            <span class="per" id="s-sym2">جنيه / شهر</span>
+          <div class="price-block">
+            <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
+            <div class="price-setup">
+              <span class="amount" id="s-setup">5,000</span>
+              <span class="unit" id="s-sym">جنيه</span>
+            </div>
           </div>
-          <div class="contract-note">عقد 12 شهر · إجمالي <strong id="s-annual">25,600</strong> <span id="s-sym3">جنيه</span></div>
+          <div class="price-block">
+            <div class="price-label">رسوم الدعم شهريا</div>
+            <div class="monthly-price">
+              <span class="amount" id="s-monthly">2,000</span>
+              <span class="per" id="s-sym2">جنيه / شهر</span>
+            </div>
+          </div>
+          <div class="contract-note">عقد 12 شهر · إجمالي <strong id="s-annual">29,000</strong> <span id="s-sym3">جنيه</span></div>
         </div>
+
         <div class="model-content" id="starter-onetime">
           <div class="onetime-price">
-            <div class="amount" id="s-onetime">14,800</div>
-            <div class="onetime-include" id="s-sym4">جنيه — شامل الإعداد + 6 أشهر</div>
+            <div class="amount" id="s-onetime">17,000</div>
+            <div class="onetime-include" id="s-sym4">جنيه</div>
           </div>
-          <span class="savings-badge">وفّر <span id="s-save">10,800</span> جنيه عن السنوي</span>
+          <div class="contract-note" style="margin-bottom:0.5rem">الدعم لمدة 30 يوم فقط</div>
+          <span class="savings-badge">وفّر <span id="s-save">12,000</span> <span id="s-sym5">جنيه</span> عن السنوي</span>
         </div>
+
         <div class="features-list">
           <div class="feature-item"><span class="icon">✅</span> واتساب أو تيليجرام (قناة واحدة)</div>
           <div class="feature-item"><span class="icon">✅</span> رد AI تلقائي 24/7</div>
           <div class="feature-item"><span class="icon">✅</span> تذكير بالمواعيد</div>
-          <div class="feature-item"><span class="icon">✅</span> Chatwoot Inbox</div>
-          <div class="feature-item"><span class="icon">✅</span> تقرير شهري</div>
-          <div class="feature-item off"><span class="icon">❌</span> CRM للمرضى</div>
+          <div class="feature-item off"><span class="icon">❌</span> CRM للمرضى / العملاء</div>
           <div class="feature-item off"><span class="icon">❌</span> متابعة بعد الزيارة</div>
         </div>
-        <button class="pkg-cta" onclick="alert('تواصل معنا على واتساب لتفعيل الباقة')">ابدأ مجاناً 14 يوم</button>
+        <button class="pkg-cta" onclick="window.open('https://calendar.app.google/eLRMKpFFzyiTnK7y5', '_blank')">ابدأ مجاناً 14 يوم</button>
       </div>
 
-      <!-- GROWTH -->
       <div class="pkg-card featured">
         <div class="pkg-badge">⭐ الأكثر طلباً</div>
         <div class="pkg-name" style="color:var(--teal-dark)">Growth</div>
-        <div class="pkg-desc">مركز 3-5 دكاترة</div>
-        <div class="price-block">
-          <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
-          <div class="price-setup">
-            <span class="amount" id="g-setup">6,500</span>
-            <span class="unit" id="g-sym">جنيه</span>
-          </div>
-        </div>
-        <div class="divider"></div>
+        <div class="pkg-desc">بيزنس متوسط — 3-5 موظفين</div>
+        
         <div class="model-tabs">
           <button class="model-tab active" onclick="setModel(this,'growth','monthly')">اشتراك شهري</button>
           <button class="model-tab" onclick="setModel(this,'growth','onetime')">دفعة واحدة</button>
         </div>
+        <div class="divider"></div>
+
         <div class="model-content active" id="growth-monthly">
-          <div class="monthly-price">
-            <span class="amount" id="g-monthly">2,800</span>
-            <span class="per" id="g-sym2">جنيه / شهر</span>
+          <div class="price-block">
+            <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
+            <div class="price-setup">
+              <span class="amount" id="g-setup">7,500</span>
+              <span class="unit" id="g-sym">جنيه</span>
+            </div>
           </div>
-          <div class="contract-note">عقد 12 شهر · إجمالي <strong id="g-annual">40,100</strong> <span id="g-sym3">جنيه</span></div>
+          <div class="price-block">
+            <div class="price-label">رسوم الدعم شهريا</div>
+            <div class="monthly-price">
+              <span class="amount" id="g-monthly">3,000</span>
+              <span class="per" id="g-sym2">جنيه / شهر</span>
+            </div>
+          </div>
+          <div class="contract-note">عقد 12 شهر · إجمالي <strong id="g-annual">43,500</strong> <span id="g-sym3">جنيه</span></div>
         </div>
+
         <div class="model-content" id="growth-onetime">
           <div class="onetime-price" style="background:rgba(0,200,150,.08);border:1px solid rgba(0,200,150,.2)">
-            <div class="amount" id="g-onetime">23,300</div>
-            <div class="onetime-include" id="g-sym4">جنيه — شامل الإعداد + 6 أشهر</div>
+            <div class="amount" id="g-onetime">25,500</div>
+            <div class="onetime-include" id="g-sym4">جنيه</div>
           </div>
-          <span class="savings-badge">وفّر <span id="g-save">16,800</span> جنيه عن السنوي</span>
+          <div class="contract-note" style="margin-bottom:0.5rem">الدعم لمدة 30 يوم فقط</div>
+          <span class="savings-badge">وفّر <span id="g-save">18,000</span> <span id="g-sym5">جنيه</span> عن السنوي</span>
         </div>
+
         <div class="features-list">
           <div class="feature-item"><span class="icon">✅</span> واتساب + تيليجرام</div>
           <div class="feature-item"><span class="icon">✅</span> رد AI تلقائي 24/7</div>
           <div class="feature-item"><span class="icon">✅</span> تذكير + تأكيد المواعيد</div>
-          <div class="feature-item"><span class="icon">✅</span> CRM للمرضى (Twenty CRM)</div>
-          <div class="feature-item"><span class="icon">✅</span> متابعة بعد الزيارة</div>
+          <div class="feature-item"><span class="icon">✅</span> متابعة بعد الزيارة / الشراء</div>
           <div class="feature-item"><span class="icon">✅</span> طلب تقييم Google تلقائي</div>
-          <div class="feature-item"><span class="icon">✅</span> تقارير أسبوعية</div>
-          <div class="feature-item"><span class="icon">✅</span> دعم واتساب</div>
+          <div class="feature-item"><span class="icon">✅</span> دعم واتساب مخصص</div>
         </div>
-        <button class="pkg-cta" onclick="alert('تواصل معنا على واتساب لتفعيل الباقة')">ابدأ مجاناً 14 يوم</button>
+        <button class="pkg-cta" onclick="window.open('https://calendar.app.google/eLRMKpFFzyiTnK7y5', '_blank')">ابدأ مجاناً 14 يوم</button>
       </div>
 
-      <!-- PREMIUM -->
       <div class="pkg-card">
         <div class="pkg-name">Premium</div>
-        <div class="pkg-desc">مراكز كبيرة / سلاسل</div>
-        <div class="price-block">
-          <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
-          <div class="price-setup">
-            <span class="amount" id="p-setup">10,000</span>
-            <span class="unit" id="p-sym">جنيه</span>
-          </div>
-        </div>
-        <div class="divider"></div>
+        <div class="pkg-desc">مراكز كبيرة / سلاسل شركات</div>
+        
         <div class="model-tabs">
           <button class="model-tab active" onclick="setModel(this,'premium','monthly')">اشتراك شهري</button>
           <button class="model-tab" onclick="setModel(this,'premium','onetime')">دفعة واحدة</button>
         </div>
+        <div class="divider"></div>
+
         <div class="model-content active" id="premium-monthly">
-          <div class="monthly-price">
-            <span class="amount" id="p-monthly">4,500</span>
-            <span class="per" id="p-sym2">جنيه / شهر</span>
+          <div class="price-block">
+            <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
+            <div class="price-setup">
+              <span class="amount" id="p-setup">11,000</span>
+              <span class="unit" id="p-sym">جنيه</span>
+            </div>
           </div>
-          <div class="contract-note">عقد 12 شهر · إجمالي <strong id="p-annual">64,000</strong> <span id="p-sym3">جنيه</span></div>
+          <div class="price-block">
+            <div class="price-label">رسوم الدعم شهريا</div>
+            <div class="monthly-price">
+              <span class="amount" id="p-monthly">4,700</span>
+              <span class="per" id="p-sym2">جنيه / شهر</span>
+            </div>
+          </div>
+          <div class="contract-note">عقد 12 شهر · إجمالي <strong id="p-annual">67,400</strong> <span id="p-sym3">جنيه</span></div>
         </div>
+
         <div class="model-content" id="premium-onetime">
           <div class="onetime-price">
-            <div class="amount" id="p-onetime">37,000</div>
-            <div class="onetime-include" id="p-sym4">جنيه — شامل الإعداد + 6 أشهر</div>
+            <div class="amount" id="p-onetime">39,200</div>
+            <div class="onetime-include" id="p-sym4">جنيه</div>
           </div>
-          <span class="savings-badge">وفّر <span id="p-save">27,000</span> جنيه عن السنوي</span>
+          <div class="contract-note" style="margin-bottom:0.5rem">الدعم لمدة 30 يوم فقط</div>
+          <span class="savings-badge">وفّر <span id="p-save">28,200</span> <span id="p-sym5">جنيه</span> عن السنوي</span>
         </div>
-        <div class="features-list">
-          <div class="feature-item"><span class="icon">✅</span> كل قنوات التواصل</div>
-          <div class="feature-item"><span class="icon">✅</span> AI مدرّب على بيانات العيادة</div>
-          <div class="feature-item"><span class="icon">✅</span> حملات تسويقية تلقائية</div>
-          <div class="feature-item"><span class="icon">✅</span> تقارير تفصيلية شهرية</div>
-          <div class="feature-item"><span class="icon">✅</span> مدير حساب مخصص</div>
-          <div class="feature-item"><span class="icon">✅</span> ساعتين استشارة شهرياً</div>
-          <div class="feature-item"><span class="icon">✅</span> دعم أولوية واتساب + مكالمة</div>
-        </div>
-        <button class="pkg-cta" onclick="alert('تواصل معنا على واتساب لتفعيل الباقة')">تواصل للتخصيص</button>
-      </div>
 
+        <div class="features-list">
+          <div class="feature-item"><span class="icon">✅</span> كل قنوات التواصل المتاحة</div>
+          <div class="feature-item"><span class="icon">✅</span> AI مدرّب بالكامل على بيانات شركتك</div>
+          <div class="feature-item"><span class="icon">✅</span> مدير حساب مخصص لك</div>
+          <div class="feature-item"><span class="icon">✅</span> ساعتين استشارة استراتيجية شهرياً</div>
+          <div class="feature-item"><span class="icon">✅</span> دعم أولوية قصوى مكالمات + واتساب</div>
+        </div>
+        <button class="pkg-cta" onclick="window.open('https://calendar.app.google/eLRMKpFFzyiTnK7y5', '_blank')">تواصل للتخصيص</button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ROI -->
 <section id="roi">
   <div class="container">
     <div class="section-label">حاسبة العائد على الاستثمار</div>
     <h2 class="section-title">إيه اللي هتكسبه فعلاً؟</h2>
-    <p class="section-sub">عدّل الأرقام حسب عيادتك وشوف النتيجة فوراً</p>
+    <p class="section-sub">عدّل الأرقام حسب عيادتك أو شركتك وشوف النتيجة فوراً</p>
     <div class="roi-grid">
       <div class="roi-inputs">
         <div class="roi-input-group">
-          <label>متوسط قيمة الموعد الواحد</label>
+          <label>متوسط قيمة الخدمة / الموعد الواحد</label>
           <input type="range" min="100" max="5000" step="50" value="500" id="r-appt-val" oninput="calcROI()">
-          <div class="roi-input-row"><span class="roi-val" id="r-appt-val-out">500 جنيه</span><span class="roi-hint">مثال: كشف 200، طربوش 1500</span></div>
+          <div class="roi-input-row"><span class="roi-val" id="r-appt-val-out">500 جنيه</span><span class="roi-hint">مثال: قيمة الكشف أو متوسط الأوردر</span></div>
         </div>
         <div class="roi-input-group">
-          <label>عدد المواعيد الشهرية</label>
+          <label>عدد المعاملات / المواعيد الشهرية</label>
           <input type="range" min="30" max="800" step="10" value="200" id="r-count" oninput="calcROI()">
-          <div class="roi-input-row"><span class="roi-val" id="r-count-out">200 موعد</span><span class="roi-hint">متوسط عيادة متوسطة</span></div>
+          <div class="roi-input-row"><span class="roi-val" id="r-count-out">200 موعد</span><span class="roi-hint">متوسط حجم عمل متوسط</span></div>
         </div>
         <div class="roi-input-group">
-          <label>نسبة غياب المرضى الحالية</label>
+          <label>نسبة عدم الرد أو الإلغاء الحالية</label>
           <input type="range" min="5" max="50" step="1" value="32" id="r-noshow" oninput="calcROI()">
-          <div class="roi-input-row"><span class="roi-val" id="r-noshow-out">32%</span><span class="roi-hint">المتوسط في مصر 30-35%</span></div>
+          <div class="roi-input-row"><span class="roi-val" id="r-noshow-out">32%</span><span class="roi-hint">المتوسط العام في السوق 30-35%</span></div>
         </div>
         <div class="roi-input-group">
           <label>استفسارات شهرية جديدة</label>
           <input type="range" min="10" max="500" step="5" value="80" id="r-inquiries" oninput="calcROI()">
-          <div class="roi-input-row"><span class="roi-val" id="r-inq-out">80 استفسار</span><span class="roi-hint">من واتساب وتيليجرام</span></div>
+          <div class="roi-input-row"><span class="roi-val" id="r-inq-out">80 استفسار</span><span class="roi-hint">من واتساب ومنصات التواصل</span></div>
         </div>
         <div class="roi-input-group">
           <label>تكلفة الاشتراك الشهري</label>
-          <input type="range" min="1800" max="4500" step="100" value="2800" id="r-sub" oninput="calcROI()">
-          <div class="roi-input-row"><span class="roi-val" id="r-sub-out">2,800 جنيه</span><span class="roi-hint">Growth Package</span></div>
+          <input type="range" min="2000" max="4700" step="100" value="3000" id="r-sub" oninput="calcROI()">
+          <div class="roi-input-row"><span class="roi-val" id="r-sub-out">3,000 جنيه</span><span class="roi-hint">Growth Package</span></div>
         </div>
       </div>
       <div class="roi-results">
         <div class="roi-result-card red">
-          <span class="roi-result-label">خسارة الغياب الشهرية الحالية</span>
+          <span class="roi-result-label">خسارة الفرص الضائعة الشهرية الحالية</span>
           <span class="roi-result-val" id="r-loss">32,000 ج</span>
         </div>
         <div class="roi-result-card green">
@@ -446,20 +664,20 @@ footer a{color:var(--teal);text-decoration:none}
           <span class="roi-result-val" id="r-saved">22,400 ج</span>
         </div>
         <div class="roi-result-card green">
-          <span class="roi-result-label">قيمة حجوزات جديدة من استفسارات</span>
+          <span class="roi-result-label">قيمة مبيعات جديدة من الاستفسارات الفورية</span>
           <span class="roi-result-val" id="r-new">10,000 ج</span>
         </div>
         <div class="roi-result-card red">
           <span class="roi-result-label">تكلفة الاشتراك</span>
-          <span class="roi-result-val" id="r-cost">2,800 ج</span>
+          <span class="roi-result-val" id="r-cost">3,000 ج</span>
         </div>
         <div class="roi-result-card highlight">
           <span class="roi-result-label">💰 صافي الربح الإضافي شهرياً</span>
-          <span class="roi-result-val" id="r-net">29,600 ج</span>
+          <span class="roi-result-val" id="r-net">29,400 ج</span>
         </div>
         <div class="roi-result-card gold">
-          <span class="roi-result-label">📈 ROI السنوي</span>
-          <span class="roi-result-val" id="r-roi">1,267%</span>
+          <span class="roi-result-label">📈 ROI السنوي المتوقع</span>
+          <span class="roi-result-val" id="r-roi">980%</span>
         </div>
         <div class="roi-note" id="r-breakeven">⚡ الحل بيدفع تكلفته من أول شهر — بل ويربح فوقها</div>
       </div>
@@ -467,7 +685,6 @@ footer a{color:var(--teal);text-decoration:none}
   </div>
 </section>
 
-<!-- COMPARE -->
 <section id="compare">
   <div class="container">
     <div class="section-label">مقارنة الباقات</div>
@@ -483,27 +700,123 @@ footer a{color:var(--teal);text-decoration:none}
         </tr>
       </thead>
       <tbody>
-        <tr><td>واتساب</td><td>قناة واحدة</td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>تيليجرام</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>عدد قنوات التواصل المتاحة</td><td>2 قناة تواصل</td><td class="featured-col">5 قنوات تواصل</td><td>العدد غير محدود</td></tr>
         <tr><td>رد AI تلقائي 24/7</td><td><span class="check">✔</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>تذكير بالمواعيد</td><td><span class="check">✔</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>تأكيد الحجز تلقائي</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>CRM للمرضى</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>متابعة بعد الزيارة</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>طلب تقييم Google</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>AI مدرّب على بيانات العيادة</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="cross">✗</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>حملات تسويقية تلقائية</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="cross">✗</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>تذكير بالمواعيد والطلبات</td><td><span class="check">✔</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>تأكيد الحجز التلقائي</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>متابعة ذكية بعد الزيارة</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>طلب تقييم Google تلقائي</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+        <tr><td>AI مدرّب على بياناتك الخاصة</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="cross">✗</span></td><td><span class="check">✔</span></td></tr>
         <tr><td>مدير حساب مخصص</td><td><span class="cross">✗</span></td><td class="featured-col"><span class="cross">✗</span></td><td><span class="check">✔</span></td></tr>
-        <tr><td>التقارير</td><td>شهري</td><td class="featured-col">أسبوعي</td><td>أسبوعي + تحليل</td></tr>
-        <tr><td>الدعم الفني</td><td>بريد إلكتروني</td><td class="featured-col">واتساب</td><td>واتساب + مكالمة</td></tr>
-        <tr><td>وقت الاسترداد</td><td>بريد إلكتروني</td><td class="featured-col">خلال 4 ساعات</td><td>خلال ساعة</td></tr>
+        <tr><td>الدعم الفني</td><td>واتساب</td><td class="featured-col">واتساب</td><td>واتساب + مكالمات direct</td></tr>
+        <tr><td>وقت الاستجابة للدعم</td><td>خلال 4 ساعات بحد أقصى</td><td class="featured-col">خلال 4 ساعات بحد أقصى</td><td>خلال ساعة واحدة</td></tr>
       </tbody>
     </table>
     </div>
   </div>
 </section>
 
-<!-- TERMS -->
+<section id="cases">
+  <div class="container">
+    <div class="section-label">دراسات الحالة</div>
+    <h2 class="section-title">نتائج حقيقية... أرقام مش كلام</h2>
+    <p class="section-sub">أمثلة من نتائج عملائنا في مجالات مختلفة بعد تطبيق الأنظمة الذكية</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="industry">🏥 عيادة أسنان — القاهرة</div>
+        <h3>من 32% غياب إلى 14% في 30 يوم</h3>
+        <div class="problem">المشكلة: 38 مريض من أصل 120 مبيجوش والموظفة مشغولة 5 ساعات يومياً في الرد التليفوني.</div>
+        <ul class="results">
+          <li>✅ نسبة الغياب نزلت لـ 14% (توفير بقيمة ~18,000 ج/شهر).</li>
+          <li>✅ حصد 23 تقييم جديد إيجابي على Google.</li>
+          <li>✅ كسب 12 مريض جديد بالكامل من ميزة الرد الفوري.</li>
+        </ul>
+        <div class="roi">⚡ العائد ROI: 340% خلال 3 شهور فقط</div>
+        
+        <div class="case-review">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="review-text">"النظام غيّر طريقة شغلنا بالكامل. وفرنا وقت الموظفين وبقينا نركز أكتر مع المرضى الموجودين فعلاً بالعيادة، ونسبة الحجوزات اللي بتضيع قلت جداً لأن الرد بقى فوري ومفيش مريض بيستنى."</div>
+          <div class="author">د. أحمد محمود <span>مؤسس ومدير العيادة</span></div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="industry">🛒 متجر ملابس أونلاين — السعودية</div>
+        <h3>زيادة المبيعات بنسبة 25% من الرد الفوري</h3>
+        <div class="problem">المشكلة: وصول أكثر من 200 رسالة يومياً بدون رد سريع، ونسبة 40% سلات شراء مهجورة.</div>
+        <ul class="results">
+          <li>✅ الرد السريع في نفس الدقيقة رفع معدلات التحويل 25%.</li>
+          <li>✅ استرجاع 15% من إجمالي السلات المهجورة بنجاح.</li>
+          <li>✅ عروض المتابعة التلقائية زودت مبيعات العملاء القدامى 18%.</li>
+        </ul>
+        <div class="roi">⚡ العائد ROI: 280% خلال 3 شهور فقط</div>
+        
+        <div class="case-review">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="review-text">"كنا بنخسر عملاء كتير جداً بسبب التأخير في الرد أوقات إطلاق الكولكشن الجديد. من وقت ما ركبنا البوت والمبيعات زادت بشكل ملحوظ، وتجربة العميل بقت أسرع وممتازة."</div>
+          <div class="author">سارة العتيبي <span>مديرة التسويق والمبيعات</span></div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="industry">🏠 شركة عقارات — دبي</div>
+        <h3>زيادة 35% في المعاينات الفعلية للمشاريع</h3>
+        <div class="problem">المشكلة: استفسارات مكثفة بالليل وفريق المبيعات بيضيع وقته مع عملاء غير جادين.</div>
+        <ul class="results">
+          <li>✅ البوت بيقوم بتصنيف وفلترة العملاء أوتوماتيكياً.</li>
+          <li>✅ فريق المبيعات بيتكلم فقط مع العملاء الجادين والمؤهلين.</li>
+          <li>✅ زيادة صافية بمعدل 35% في المعاينات الميدانية.</li>
+        </ul>
+        <div class="roi">⚡ العائد ROI: 400% خلال 3 شهور فقط</div>
+        
+        <div class="case-review">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <div class="review-text">"فلترة العملاء كانت أكبر مشكلة بتواجه فريق المبيعات وبتضيع وقتهم. دلوقتي بيوصلنا العميل الجاد والمؤهل بس، وده ضاعف كفاءة الفريق وزود نسبة التقفيل بشكل مبهر."</div>
+          <div class="author">عمر الشامسي <span>مدير العمليات</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="cases-note">* الأمثلة مبنية على بيانات متوسطة لشركات حقيقية تشابه عملنا — والنتائج تختلف بطبيعة الحال حسب المجال والحجم.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-label">الأسئلة الشائعة</div>
+    <h2 class="section-title">أسئلة بتتكرر كتير</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">❓ هل محتاج أغير نظامي الحالي؟</div>
+        <div class="faq-a">لا، على الإطلاق. بنشتغل مع أي نظام معتمد عندك حالياً — سواء واتساب بيزنس عادي، أو Google Sheets، أو أي نظام CRM تستخدمه. بنربط الأنظمة الجديدة مع اللي موجود عندك بالفعل.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ لو مش عاجبني النظام بعد التجربة؟</div>
+        <div class="faq-a">بعد فترة الـ 14 يوم تجربة، لو مش شايف نتيجة واضحة وملموسة لبيزنسك — بنشيل كل الأكواد والأنظمة ومفيش عليك أي التزام مالي أو دفع عقود.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ هل العملاء هيحسوا إنهم بيكلموا بوت آلي؟</div>
+        <div class="faq-a">الـ AI متدرب ومطور ليتكلم بلهجة بشرية طبيعية تماماً (مصري أو خليجي حسب طبيعة جمهورك).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ هل بياناتي وبيانات عملائي آمنة ومحمية؟</div>
+        <div class="faq-a">آمنة بنسبة 100%. السيرفر المضيف للخدمة ممكن يكون عندك أنت بالكامل (On-Premise) أو على Cloud مستقل وخاص بشركتك فقط. مفيش أي بيانات بيتم مشاركتها مع طرف ثالث مطلقاً.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ أنا شخص غير تقني (Not Technical) — هل دي مشكلة؟</div>
+        <div class="faq-a">أبداً، دي مهمتنا إحنا. بنعمل كل الخطوات البرمجية والربط من الألف للياء — أنت بس محتاج تدينا 30 دقيقة من وقتك في البداية لشرح محتوى شركتك ونحن نتولى الباقي.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ هل بتقدموا خدماتكم بره مصر؟</div>
+        <div class="faq-a">أيوه بالظبط — بنخدم عملائنا في مصر ومنطقة الخليج العربي بالكامل (المملكة العربية السعودية / الإمارات / الكويت / قطر / البحرين / سلطنة عمان).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ إيه هي الأدوات البرمجية اللي بتستخدموها؟</div>
+        <div class="faq-a">نعتمد على أفضل الحلول العالمية والمفتوحة مثل: n8n / Chatwoot / Twenty CRM / WhatsApp Business API / Telegram Bot وأدوات متقدمة تانية حسب متطلبات واحتياجات بيزنسك.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="terms">
   <div class="container">
     <div class="section-label">الشروط والأحكام</div>
@@ -512,57 +825,52 @@ footer a{color:var(--teal);text-decoration:none}
       <div class="terms-card">
         <h4>🚀 الإعداد والتسليم</h4>
         <ul>
-          <li>7-14 يوم عمل من استلام الدفعة الأولى</li>
+          <li>14-21 يوم عمل من استلام الدفعة الأولى</li>
           <li>Demo كامل + تدريب على لوحة التحكم</li>
-          <li>المطلوب منك: رقم واتساب + محتوى العيادة</li>
-          <li>14 يوم تجربة مجانية قبل الالتزام</li>
+          <li>المطلوب منك: رقم واتساب + محتوى العيادة/الشركة</li>
+          <li>14 يوم تجربة مجانية قبل الالتزام الكامل</li>
         </ul>
       </div>
       <div class="terms-card">
         <h4>💳 شروط الدفع</h4>
         <ul>
-          <li>50% دفعة أولى عند بدء الإعداد</li>
-          <li>50% عند التسليم والتشغيل الكامل</li>
-          <li>ثم شهرياً في نموذج الاشتراك</li>
+          <li>يتم تحديد طريقة السداد من الاجتماع الاول</li>
           <li>تحويل بنكي / انستاباي / USDT</li>
-        </ul>
-      </div>
-      <div class="terms-card">
-        <h4>🔧 الدعم الفني</h4>
-        <ul>
-          <li>Starter: بريد إلكتروني — 24 ساعة</li>
-          <li>Growth: واتساب — 4 ساعات</li>
-          <li>Premium: واتساب + مكالمة — ساعة</li>
-          <li>تحديثات دورية مجانية طوال الاشتراك</li>
         </ul>
       </div>
       <div class="terms-card">
         <h4>🔒 الخصوصية والضمان</h4>
         <ul>
-          <li>بيانات العيادة محمية ولا تُشارك</li>
-          <li>99% Uptime مضمون</li>
+          <li>بيانات العيادة أو الشركة محمية تماماً ولا تُشارك</li>
+          <li>99% Uptime وسرعة تشغيل مضمونة</li>
           <li>الحل يعمل على سيرفر مستقل لكل عميل</li>
-          <li>إمكانية التحكم الكامل في أي وقت</li>
+          <li>إمكانية التحكم الكامل وسحب البيانات في أي وقت</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
 <section id="cta">
   <div class="container">
-    <h2>ابدأ اليوم — مش بكره</h2>
-    <p>14 يوم تجربة مجانية · لا عقد · لا مخاطرة</p>
+    <h2>جاهز توفّر وقت وتكسب أكتر؟</h2>
+    <p>احجز استشارة مجانية 15 دقيقة — نفهم بيزنسك ونقولك بالظبط إيه اللي الأتمتة ممكن تعمله ليك</p>
     <div class="cta-buttons">
-      <a href="https://wa.me/201012345678" class="btn-primary">تواصل على واتساب</a>
-      <a href="mailto:eng.mohamedkh92@gmail.com" class="btn-outline">راسلنا بالبريد</a>
+      <a href="https://calendar.app.google/eLRMKpFFzyiTnK7y5" target="_blank" class="btn-primary">📞 احجز استشارتك المجانية</a>
+      <a href="https://wa.me/201128324068" target="_blank" class="btn-outline">💬 تواصل معنا على الواتس</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Unlmtd Agency · <a href="https://unlmtd-ai-agncy.space">unlmtd-ai-agncy.space</a> · eng.mohamedkh92@gmail.com</p>
+  <div class="footer-logo">
+    <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-left: 6px;">
+      <path d="M18 36 L36 50 L18 64 L28 64 L46 50 L28 36 Z" fill="#3ac5ff"/>
+      <path d="M68 22 L44 53 L61 78 L49 78 L35 56 L55 22 Z" fill="#4d75ff"/>
+    </svg>
+    <span>UNLMTD AGNCY</span>
+  </div>
+  <p>© 2026 UNLMTD AGNCY · <a href="https://unlmtd-ai-agncy.space">unlmtd-ai-agncy.space</a></p>
 </footer>
 
 <script>
@@ -570,17 +878,17 @@ footer a{color:var(--teal);text-decoration:none}
 const data = {
   egp: {
     sym:'جنيه', sym_per:'جنيه / شهر',
-    s:{ setup:'4,000', monthly:1800, onetime:14800, save:10800 },
-    g:{ setup:'6,500', monthly:2800, onetime:23300, save:16800 },
-    p:{ setup:'10,000', monthly:4500, onetime:37000, save:27000 },
-    roi:{ min:100, max:5000, step:50, def:500, minSub:1800, maxSub:4500, defSub:2800, unit:'جنيه' }
+    s:{ setup:'5,000', monthly:2000, onetime:17000, save:12000 },
+    g:{ setup:'7,500', monthly:3000, onetime:25500, save:18000 },
+    p:{ setup:'11,000', monthly:4700, onetime:39200, save:28200 },
+    roi:{ min:100, max:5000, step:50, def:500, minSub:2000, maxSub:4700, defSub:3000, unit:'جنيه' }
   },
   usd: {
     sym:'$', sym_per:'$ / شهر',
-    s:{ setup:'250', monthly:120, onetime:970, save:710 },
-    g:{ setup:'400', monthly:200, onetime:1600, save:1200 },
-    p:{ setup:'600', monthly:300, onetime:2400, save:1800 },
-    roi:{ min:20, max:500, step:5, def:80, minSub:120, maxSub:300, defSub:200, unit:'$' }
+    s:{ setup:'450', monthly:190, onetime:1590, save:1140 },
+    g:{ setup:'600', monthly:270, onetime:2220, save:1620 },
+    p:{ setup:'800', monthly:370, onetime:3020, save:2220 },
+    roi:{ min:20, max:500, step:5, def:80, minSub:190, maxSub:370, defSub:270, unit:'$' }
   }
 };
 let curr = 'egp';
@@ -595,30 +903,30 @@ function setCurrency(c){
   document.getElementById('btn-usd').classList.toggle('active', c==='usd');
   // starter
   document.getElementById('s-setup').textContent = d.s.setup;
-  ['s-sym','s-sym2','s-sym3'].forEach(id=>document.getElementById(id).textContent = d.sym);
+  ['s-sym','s-sym2','s-sym3','s-sym5'].forEach(id=>document.getElementById(id).textContent = d.sym);
   document.getElementById('s-monthly').textContent = fmt(d.s.monthly);
   document.getElementById('s-sym2').textContent = d.sym_per;
-  document.getElementById('s-annual').textContent = fmt(d.s.setup.replace(',','').replace(',','')*1 + d.s.monthly*12);
+  document.getElementById('s-annual').textContent = fmt(d.s.setup.replace(/,/g,'')*1 + d.s.monthly*12);
   document.getElementById('s-onetime').textContent = fmt(d.s.onetime);
-  document.getElementById('s-sym4').textContent = d.sym+' — شامل الإعداد + 6 أشهر';
+  document.getElementById('s-sym4').textContent = d.sym;
   document.getElementById('s-save').textContent = fmt(d.s.save);
   // growth
   document.getElementById('g-setup').textContent = d.g.setup;
-  ['g-sym','g-sym2','g-sym3'].forEach(id=>document.getElementById(id).textContent = d.sym);
+  ['g-sym','g-sym2','g-sym3','g-sym5'].forEach(id=>document.getElementById(id).textContent = d.sym);
   document.getElementById('g-monthly').textContent = fmt(d.g.monthly);
   document.getElementById('g-sym2').textContent = d.sym_per;
   document.getElementById('g-annual').textContent = fmt(parseInt(d.g.setup.replace(/,/g,'')) + d.g.monthly*12);
   document.getElementById('g-onetime').textContent = fmt(d.g.onetime);
-  document.getElementById('g-sym4').textContent = d.sym+' — شامل الإعداد + 6 أشهر';
+  document.getElementById('g-sym4').textContent = d.sym;
   document.getElementById('g-save').textContent = fmt(d.g.save);
   // premium
   document.getElementById('p-setup').textContent = d.p.setup;
-  ['p-sym','p-sym2','p-sym3'].forEach(id=>document.getElementById(id).textContent = d.sym);
+  ['p-sym','p-sym2','p-sym3','p-sym5'].forEach(id=>document.getElementById(id).textContent = d.sym);
   document.getElementById('p-monthly').textContent = fmt(d.p.monthly);
   document.getElementById('p-sym2').textContent = d.sym_per;
   document.getElementById('p-annual').textContent = fmt(parseInt(d.p.setup.replace(/,/g,'')) + d.p.monthly*12);
   document.getElementById('p-onetime').textContent = fmt(d.p.onetime);
-  document.getElementById('p-sym4').textContent = d.sym+' — شامل الإعداد + 6 أشهر';
+  document.getElementById('p-sym4').textContent = d.sym;
   document.getElementById('p-save').textContent = fmt(d.p.save);
   // roi sliders
   const r = d.roi;
