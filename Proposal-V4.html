@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal Unlmtd Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f12;
+    --surface: #13161b;
+    --card: #181c22;
+    --card-hover: #1e232b;
+    --border: #252a33;
+    --border-accent: #2e3540;
+    --accent: #00c896;
+    --accent-dim: rgba(0,200,150,0.12);
+    --accent-glow: rgba(0,200,150,0.25);
+    --red: #ff4d6a;
+    --red-dim: rgba(255,77,106,0.12);
+    --blue: #4d9fff;
+    --blue-dim: rgba(77,159,255,0.12);
+    --text-1: #f0f2f5;
+    --text-2: #8a93a2;
+    --text-3: #555f6e;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --font: 'IBM Plex Sans Arabic', sans-serif;
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text-1);
+    min-height: 100vh;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  /* ── CURRENCY TOGGLE ── */
+  .toggle-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0 36px;
+  }
+  .toggle {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px;
+    gap: 4px;
+  }
+  .toggle button {
+    padding: 8px 22px;
+    border-radius: 100px;
+    border: none;
+    background: transparent;
+    color: var(--text-2);
+    font-family: var(--font);
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .toggle button.active {
+    background: var(--accent);
+    color: #0d0f12;
+  }
+
+  /* ── PLANS GRID ── */
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 0;
+  }
+  .plan {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .plan:hover { border-color: var(--border-accent); }
+  .plan.featured {
+    border-color: var(--accent);
+    background: linear-gradient(160deg, #13161b 60%, rgba(0,200,150,0.04));
+  }
+  .featured-badge {
+    position: absolute;
+    top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent);
+    color: #0d0f12;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+  }
+  .plan-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: var(--text-2);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .plan.featured .plan-name { color: var(--accent); }
+  .plan-desc {
+    font-size: 14px;
+    color: var(--text-3);
+    margin-bottom: 22px;
+  }
+
+  .price-block { margin-bottom: 8px; }
+  .price-label {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 3px;
+  }
+  .price-value {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-1);
+    line-height: 1;
+  }
+  .price-sub {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-top: 2px;
+  }
+  .price-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 16px 0;
+  }
+  .onetime-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    margin-bottom: 0px;
+  }
+  .plan.featured .onetime-box {
+    background: var(--accent-dim);
+    border-color: var(--accent-glow);
+  }
+  .onetime-label {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 3px;
+  }
+  .plan.featured .onetime-label { color: var(--accent); opacity: 0.7; }
+  .onetime-value {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-1);
+  }
+  .plan.featured .onetime-value { color: var(--accent); }
+  .onetime-note {
+    font-size: 12px;
+    color: var(--text-3);
+    margin-top: 2px;
+  }
+  .plan.featured .onetime-note { color: var(--accent); opacity: 0.6; }
+
+  /* ── ROI DUAL GRID ── */
+  .roi-shared-label {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .roi-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 640px) {
+    .roi-dual-grid { grid-template-columns: 1fr; }
+  }
+  .roi-currency-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .roi-currency-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .egp-header { background: rgba(0,200,150,0.07); }
+  .usd-header { background: rgba(77,159,255,0.07); }
+  .roi-flag { font-size: 20px; }
+  .roi-currency-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-1);
+    letter-spacing: 0.3px;
+  }
+  .roi-currency-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255,255,255,0.01);
+  }
+  .roi-currency-inputs .input-group label { font-size: 12px; }
+  .roi-currency-inputs .num-input { font-size: 14px; padding: 7px 10px; }
+  .roi-results-table { padding: 6px 0; }
+  .roi-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 16px;
+    gap: 8px;
+  }
+  .roi-row-label {
+    font-size: 13px;
+    color: var(--text-3);
+    flex: 1;
+  }
+  .roi-row-value {
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: right;
+  }
+  .roi-row-sym {
+    font-size: 12px;
+    color: var(--text-3);
+    width: 28px;
+    text-align: right;
+  }
+  .roi-row-divider {
+    height: 1px;
+    background: var(--border);
+    padding: 0;
+    margin: 4px 0;
+  }
+  .roi-row-highlight { background: rgba(0,200,150,0.05); }
+  .roi-row-highlight .roi-row-label { color: var(--text-2); }
+
+  /* ── ROI CALCULATOR ── */
+  .roi-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin-top: 40px;
+  }
+  .roi-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 6px;
+  }
+  .roi-subtitle {
+    font-size: 14px;
+    color: var(--text-3);
+    margin-bottom: 24px;
+  }
+  .inputs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .input-group label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+  .input-group .hint {
+    font-size: 12px;
+    color: var(--text-3);
+    margin-top: 4px;
+    opacity: 0.7;
+  }
+  .num-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+    color: var(--text-1);
+    font-family: var(--font);
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px 12px;
+    text-align: right;
+    transition: border-color 0.2s;
+    outline: none;
+    direction: ltr;
+  }
+  .num-input:focus { border-color: var(--accent); }
+  .num-input::placeholder { color: var(--text-3); }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .result-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    text-align: center;
+  }
+  .result-label {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .result-value {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .result-value.red { color: var(--red); }
+  .result-value.green { color: var(--accent); }
+  .result-value.blue { color: var(--blue); }
+  .result-sym {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-top: 2px;
+  }
+  .result-card.highlight {
+    border-color: var(--accent-glow);
+    background: var(--accent-dim);
+  }
+
+  /* ── SETTINGS PANEL ── */
+  .settings-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin-top: 40px;
+  }
+  .settings-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 6px;
+  }
+  .settings-subtitle {
+    font-size: 14px;
+    color: var(--text-3);
+    margin-bottom: 24px;
+  }
+  .settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .settings-group {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .settings-group-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .field { margin-bottom: 14px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 5px;
+  }
+  .field .num-input { font-size: 15px; padding: 8px 10px; }
+  
+  .text-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+    color: var(--text-1);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    text-align: right;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .text-input:focus { border-color: var(--accent); }
+  .text-input::placeholder { color: var(--text-3); }
+
+  /* ── ADDONS PANEL ── */
+  .addons-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin-top: 24px;
+  }
+  .addons-table {
+    width: 100%;
+    border-collapse: collapse;
+    direction: rtl;
+    margin-top: 16px;
+  }
+  .addons-table th {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-3);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: right;
+    background: var(--surface);
+  }
+  .addons-table th:last-child { text-align: center; }
+  .addons-table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-2);
+    vertical-align: middle;
+  }
+  .addons-table tr:last-child td { border-bottom: none; }
+  .addons-table tr:hover td { background: rgba(255,255,255,0.01); }
+  .addon-name-cell { font-weight: 600; color: var(--text-1); min-width: 120px; }
+  .addon-input {
+    width: 100%;
+    min-width: 90px;
+    background: var(--surface);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+    color: var(--text-1);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 7px 10px;
+    text-align: right;
+    outline: none;
+    direction: ltr;
+    transition: border-color 0.2s;
+  }
+  .addon-input:focus { border-color: var(--accent); }
+  .addon-toggle-cell { text-align: center; }
+  .addon-toggle {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .addon-delete-btn {
+    background: transparent;
+    border: 1px solid var(--border-accent);
+    color: var(--red);
+    font-family: var(--font);
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .addon-delete-btn:hover { border-color: var(--red); background: var(--red-dim); }
+  .addon-add-row {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .addon-new-name {
+    flex: 1;
+    min-width: 150px;
+    background: var(--surface);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+    color: var(--text-1);
+    font-family: var(--font);
+    font-size: 14px;
+    padding: 8px 12px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .addon-new-name:focus { border-color: var(--accent); }
+  .addon-new-name::placeholder { color: var(--text-3); }
+  
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: var(--accent);
+    color: #0d0f12;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #00e0a8; box-shadow: 0 4px 12px var(--accent-glow); }
+
+  .btn-add-addon {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-glow);
+    color: var(--accent);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-add-addon:hover { background: var(--accent); color: #0d0f12; }
+  
+  .addons-note {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+
+  .reset-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .btn-reset {
+    background: transparent;
+    border: 1px solid var(--border-accent);
+    color: var(--text-3);
+    font-family: var(--font);
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-reset:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── PROPOSAL ACTION BAR ── */
+  .proposal-actions {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 22px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn-action-ghost {
+    background: transparent;
+    border-color: var(--border-accent);
+    color: var(--text-2);
+    order: 3;
+  }
+  .btn-action-ghost:hover { border-color: var(--red); color: var(--red); background: var(--red-dim); }
+  .btn-action-client {
+    background: var(--accent-dim);
+    border-color: var(--accent-glow);
+    color: var(--accent);
+    order: 1;
+  }
+  .btn-action-client:hover { background: var(--accent); color: #0d0f12; box-shadow: 0 4px 12px var(--accent-glow); }
+  .btn-action-internal {
+    background: var(--blue-dim);
+    border-color: rgba(77,159,255,0.35);
+    color: var(--blue);
+    order: 2;
+  }
+  .btn-action-internal:hover { background: var(--blue); color: #0d0f12; box-shadow: 0 4px 12px rgba(77,159,255,0.3); }
+
+  /* ── PROPOSAL BUILDER RADIOS ── */
+  .radio-group { display: flex; flex-direction: column; gap: 10px; margin-top: 6px;}
+  .radio-group label { display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-1); font-size: 14px; }
+  .radio-group input[type="radio"] { accent-color: var(--accent); width: 16px; height: 16px; cursor: pointer;}
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .footer-trial {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-1);
+    margin-bottom: 4px;
+  }
+  .footer-note {
+    font-size: 14px;
+    color: var(--text-3);
+    margin-bottom: 14px;
+  }
+  .footer-contact {
+    font-size: 14px;
+    color: var(--text-2);
+  }
+  .footer-contact a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .plans { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .addons-table { font-size: 13px; }
+  }
+
+  .result-value.red { color: var(--red); }
+  .result-value.green { color: var(--accent); }
+  .result-value.blue { color: var(--blue); }
+  .roi-row-value.red { color: var(--red); }
+  .roi-row-value.green { color: var(--accent); }
+  .roi-row-value.blue { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div id="main-content" class="container">
+
+  <div class="toggle-wrap">
+    <div class="toggle">
+      <button class="active" onclick="setCurrency('egp')">جنية مصري</button>
+      <button onclick="setCurrency('usd')">دولار امريكي</button>
+    </div>
+  </div>
+
+  <div class="section-label">الباقات</div>
+  <div class="plans">
+
+    <div class="plan">
+      <div class="plan-name">Starter</div>
+      <div class="plan-desc">بيزنس صغير — 1-2 موظف</div>
+      <div class="price-block">
+        <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
+        <div class="price-value" id="s-setup">5,000 ج</div>
+      </div>
+      <div class="price-divider"></div>
+      <div class="price-block">
+        <div class="price-label">رسوم الدعم شهرياً (عقد سنة)</div>
+        <div class="price-value" id="s-monthly">2,000 ج</div>
+        <div class="price-sub">/ شهر — إجمالي: <span id="s-annual">29,000 ج</span></div>
+      </div>
+      <div class="onetime-box" style="margin-top:16px">
+        <div class="onetime-label">أو دفعة واحدة</div>
+        <div class="onetime-value" id="s-onetime">17,000 ج</div>
+        <div class="onetime-note">توفير: <span id="s-save">12,000 ج</span> مقارنة بالسنوي<br>الدعم لمدة 30 يوم فقط وينتهي الالتزام</div>
+      </div>
+    </div>
+
+    <div class="plan featured">
+      <div class="featured-badge">⭐ الأكثر طلباً</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-desc">بيزنس متوسط — 3-5 موظفين</div>
+      <div class="price-block">
+        <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
+        <div class="price-value" id="g-setup">7,500 ج</div>
+      </div>
+      <div class="price-divider"></div>
+      <div class="price-block">
+        <div class="price-label">رسوم الدعم شهرياً (عقد سنة)</div>
+        <div class="price-value" id="g-monthly">3,000 ج</div>
+        <div class="price-sub">/ شهر — إجمالي: <span id="g-annual">43,500 ج</span></div>
+      </div>
+      <div class="onetime-box" style="margin-top:16px">
+        <div class="onetime-label">أو دفعة واحدة</div>
+        <div class="onetime-value" id="g-onetime">25,500 ج</div>
+        <div class="onetime-note">توفير: <span id="g-save">18,000 ج</span> مقارنة بالسنوي<br>الدعم لمدة 30 يوم فقط وينتهي الالتزام</div>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div class="plan-name">Premium</div>
+      <div class="plan-desc">مراكز كبيرة / سلاسل شركات</div>
+      <div class="price-block">
+        <div class="price-label">رسوم الإعداد (مرة واحدة)</div>
+        <div class="price-value" id="p-setup">11,000 ج</div>
+      </div>
+      <div class="price-divider"></div>
+      <div class="price-block">
+        <div class="price-label">رسوم الدعم شهرياً (عقد سنة)</div>
+        <div class="price-value" id="p-monthly">4,700 ج</div>
+        <div class="price-sub">/ شهر — إجمالي: <span id="p-annual">67,400 ج</span></div>
+      </div>
+      <div class="onetime-box" style="margin-top:16px">
+        <div class="onetime-label">أو دفعة واحدة</div>
+        <div class="onetime-value" id="p-onetime">39,200 ج</div>
+        <div class="onetime-note">توفير: <span id="p-save">28,200 ج</span> مقارنة بالسنوي<br>الدعم لمدة 30 يوم فقط وينتهي الالتزام</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">حاسبة العائد على الاستثمار</div>
+  <div class="roi-section">
+    <div class="roi-title">إيه اللي بتخسره دلوقتي؟</div>
+    <div class="roi-subtitle">أدخل الأرقام المشتركة مرة واحدة — والنتائج بتظهر بالجنيه والدولار تلقائياً</div>
+
+    <div class="roi-shared-label">المتغيرات المشتركة</div>
+    <div class="inputs-grid" style="margin-bottom:28px;">
+      <div class="input-group">
+        <label>عدد المواعيد الشهرية</label>
+        <input class="num-input" type="number" id="roi-appt-count" value="200" min="0" oninput="calcROI()">
+        <div class="hint">مجموع المواعيد كل شهر</div>
+      </div>
+      <div class="input-group">
+        <label>نسبة غياب المرضى %</label>
+        <input class="num-input" type="number" id="roi-no-show" value="32" min="0" max="100" oninput="calcROI()">
+        <div class="hint">مثال: 32 = 32%</div>
+      </div>
+      <div class="input-group">
+        <label>نسبة تحسن الأتمتة %</label>
+        <input class="num-input" type="number" id="roi-improve" value="70" min="0" max="100" oninput="calcROI()">
+        <div class="hint">تقليل نسبة الغياب</div>
+      </div>
+      <div class="input-group">
+        <label>استفسارات جديدة شهرياً</label>
+        <input class="num-input" type="number" id="roi-inquiries" value="80" min="0" oninput="calcROI()">
+        <div class="hint">من واتساب / تيليجرام</div>
+      </div>
+      <div class="input-group">
+        <label>نسبة تحويل استفسار لحجز %</label>
+        <input class="num-input" type="number" id="roi-convert" value="25" min="0" max="100" oninput="calcROI()">
+        <div class="hint">بعد تطبيق الـ AI</div>
+      </div>
+    </div>
+
+    <div class="roi-dual-grid">
+      <div class="roi-currency-block">
+        <div class="roi-currency-header egp-header">
+          <span class="roi-flag">🇪🇬</span>
+          <span class="roi-currency-name">جنيه مصري — EGP</span>
+        </div>
+        <div class="roi-currency-inputs">
+          <div class="input-group">
+            <label>متوسط قيمة الموعد (ج)</label>
+            <input class="num-input" type="number" id="roi-appt-egp" value="500" min="0" oninput="calcROI()">
+          </div>
+          <div class="input-group">
+            <label>تكلفة الاشتراك الشهري (ج)</label>
+            <input class="num-input" type="number" id="roi-sub-egp" value="3000" min="0" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-results-table">
+          <div class="roi-row"><span class="roi-row-label">خسارة الغياب شهرياً</span><span class="roi-row-value red" id="egp-loss">—</span><span class="roi-row-sym">ج</span></div>
+          <div class="roi-row"><span class="roi-row-label">توفير بعد الأتمتة</span><span class="roi-row-value green" id="egp-saving">—</span><span class="roi-row-sym">ج</span></div>
+          <div class="roi-row"><span class="roi-row-label">حجوزات جديدة</span><span class="roi-row-value blue" id="egp-bookings">—</span><span class="roi-row-sym">موعد</span></div>
+          <div class="roi-row"><span class="roi-row-label">إيراد إضافي شهري</span><span class="roi-row-value green" id="egp-extra">—</span><span class="roi-row-sym">ج</span></div>
+          <div class="roi-row roi-row-divider"></div>
+          <div class="roi-row roi-row-highlight"><span class="roi-row-label">صافي الربح الإضافي / شهر</span><span class="roi-row-value green" id="egp-net">—</span><span class="roi-row-sym">ج</span></div>
+          <div class="roi-row roi-row-highlight"><span class="roi-row-label">ROI السنوي</span><span class="roi-row-value green" id="egp-roi">—</span><span class="roi-row-sym">%</span></div>
+          <div class="roi-row roi-row-highlight"><span class="roi-row-label">فترة الاسترداد</span><span class="roi-row-value green" id="egp-payback">—</span><span class="roi-row-sym">شهر</span></div>
+        </div>
+      </div>
+
+      <div class="roi-currency-block">
+        <div class="roi-currency-header usd-header">
+          <span class="roi-flag">🇸🇦</span>
+          <span class="roi-currency-name">دولار أمريكي — USD</span>
+        </div>
+        <div class="roi-currency-inputs">
+          <div class="input-group">
+            <label>متوسط قيمة الموعد ($)</label>
+            <input class="num-input" type="number" id="roi-appt-usd" value="80" min="0" oninput="calcROI()">
+          </div>
+          <div class="input-group">
+            <label>تكلفة الاشتراك الشهري ($)</label>
+            <input class="num-input" type="number" id="roi-sub-usd" value="270" min="0" oninput="calcROI()">
+          </div>
+        </div>
+        <div class="roi-results-table">
+          <div class="roi-row"><span class="roi-row-label">خسارة الغياب شهرياً</span><span class="roi-row-value red" id="usd-loss">—</span><span class="roi-row-sym">$</span></div>
+          <div class="roi-row"><span class="roi-row-label">توفير بعد الأتمتة</span><span class="roi-row-value green" id="usd-saving">—</span><span class="roi-row-sym">$</span></div>
+          <div class="roi-row"><span class="roi-row-label">حجوزات جديدة</span><span class="roi-row-value blue" id="usd-bookings">—</span><span class="roi-row-sym">موعد</span></div>
+          <div class="roi-row"><span class="roi-row-label">إيراد إضافي شهري</span><span class="roi-row-value green" id="usd-extra">—</span><span class="roi-row-sym">$</span></div>
+          <div class="roi-row roi-row-divider"></div>
+          <div class="roi-row roi-row-highlight"><span class="roi-row-label">صافي الربح الإضافي / شهر</span><span class="roi-row-value green" id="usd-net">—</span><span class="roi-row-sym">$</span></div>
+          <div class="roi-row roi-row-highlight"><span class="roi-row-label">ROI السنوي</span><span class="roi-row-value green" id="usd-roi">—</span><span class="roi-row-sym">%</span></div>
+          <div class="roi-row roi-row-highlight"><span class="roi-row-label">فترة الاسترداد</span><span class="roi-row-value green" id="usd-payback">—</span><span class="roi-row-sym">شهر</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">تعديل الأسعار</div>
+  <div class="settings-panel">
+    <div class="settings-title">أسعار الباقات — قابلة للتعديل</div>
+    <div class="settings-subtitle">عدّل الأرقام وسيتم تحديث كل شيء تلقائياً</div>
+    <div class="settings-grid">
+      <div class="settings-group">
+        <div class="settings-group-title">Starter — 🇪🇬 جنيه</div>
+        <div class="field"><label>رسوم الإعداد</label><input class="num-input" type="number" id="cfg-s-setup-egp" value="5000" oninput="updatePrices()"></div>
+        <div class="field"><label>اشتراك شهري</label><input class="num-input" type="number" id="cfg-s-monthly-egp" value="2000" oninput="updatePrices()"></div>
+        <div class="settings-group-title" style="margin-top:16px">Starter — 🇸🇦 دولار</div>
+        <div class="field"><label>رسوم الإعداد $</label><input class="num-input" type="number" id="cfg-s-setup-usd" value="450" oninput="updatePrices()"></div>
+        <div class="field"><label>اشتراك شهري $</label><input class="num-input" type="number" id="cfg-s-monthly-usd" value="190" oninput="updatePrices()"></div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-group-title">Growth — 🇪🇬 جنيه</div>
+        <div class="field"><label>رسوم الإعداد</label><input class="num-input" type="number" id="cfg-g-setup-egp" value="7500" oninput="updatePrices()"></div>
+        <div class="field"><label>اشتراك شهري</label><input class="num-input" type="number" id="cfg-g-monthly-egp" value="3000" oninput="updatePrices()"></div>
+        <div class="settings-group-title" style="margin-top:16px">Growth — 🇸🇦 دولار</div>
+        <div class="field"><label>رسوم الإعداد $</label><input class="num-input" type="number" id="cfg-g-setup-usd" value="600" oninput="updatePrices()"></div>
+        <div class="field"><label>اشتراك شهري $</label><input class="num-input" type="number" id="cfg-g-monthly-usd" value="270" oninput="updatePrices()"></div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-group-title">Premium — 🇪🇬 جنيه</div>
+        <div class="field"><label>رسوم الإعداد</label><input class="num-input" type="number" id="cfg-p-setup-egp" value="11000" oninput="updatePrices()"></div>
+        <div class="field"><label>اشتراك شهري</label><input class="num-input" type="number" id="cfg-p-monthly-egp" value="4700" oninput="updatePrices()"></div>
+        <div class="settings-group-title" style="margin-top:16px">Premium — 🇸🇦 دولار</div>
+        <div class="field"><label>رسوم الإعداد $</label><input class="num-input" type="number" id="cfg-p-setup-usd" value="800" oninput="updatePrices()"></div>
+        <div class="field"><label>اشتراك شهري $</label><input class="num-input" type="number" id="cfg-p-monthly-usd" value="370" oninput="updatePrices()"></div>
+      </div>
+    </div>
+    <div class="reset-row">
+      <button class="btn-reset" onclick="resetDefaults()">↺ إعادة للأرقام الأصلية</button>
+    </div>
+  </div>
+
+  <div class="addons-panel">
+    <div class="settings-title">أسعار الباقات الإضافية</div>
+    <div class="settings-subtitle">فعّل التطبيق لإضافة تكلفته تلقائياً على أسعار الباقات — عدّل الأسعار حسب الحاجة</div>
+    <table class="addons-table">
+      <thead>
+        <tr>
+          <th>التطبيق</th>
+          <th>رسوم الإعداد (ج)</th>
+          <th>إضافة شهرية (ج)</th>
+          <th>رسوم الإعداد ($)</th>
+          <th>إضافة شهرية ($)</th>
+          <th>تفعيل</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="addons-tbody">
+        <tr class="addon-row">
+          <td class="addon-name-cell">Chatwoot</td>
+          <td><input class="addon-input" type="number" value="1000" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="200" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="100" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="20" oninput="updatePrices()"></td>
+          <td class="addon-toggle-cell"><input type="checkbox" class="addon-toggle" onchange="updatePrices()"></td>
+          <td></td>
+        </tr>
+        <tr class="addon-row">
+          <td class="addon-name-cell">Twenty CRM</td>
+          <td><input class="addon-input" type="number" value="1000" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="200" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="100" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="20" oninput="updatePrices()"></td>
+          <td class="addon-toggle-cell"><input type="checkbox" class="addon-toggle" onchange="updatePrices()"></td>
+          <td></td>
+        </tr>
+        <tr class="addon-row">
+          <td class="addon-name-cell">Monitoring</td>
+          <td><input class="addon-input" type="number" value="300" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="150" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="50" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="20" oninput="updatePrices()"></td>
+          <td class="addon-toggle-cell"><input type="checkbox" class="addon-toggle" onchange="updatePrices()"></td>
+          <td></td>
+        </tr>
+        <tr class="addon-row">
+          <td class="addon-name-cell">AI Voice Agent</td>
+          <td><input class="addon-input" type="number" value="2500" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="500" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="300" oninput="updatePrices()"></td>
+          <td><input class="addon-input" type="number" value="100" oninput="updatePrices()"></td>
+          <td class="addon-toggle-cell"><input type="checkbox" class="addon-toggle" onchange="updatePrices()"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="addon-add-row">
+      <input class="addon-new-name" type="text" id="new-addon-name" placeholder="اسم التطبيق الجديد...">
+      <button class="btn-add-addon" onclick="addAddon()">+ إضافة تطبيق</button>
+    </div>
+    <div class="addons-note">
+      💡 الأسعار المفعّلة تُضاف تلقائياً على رسوم الإعداد والاشتراك الشهري لكل الباقات
+    </div>
+  </div>
+
+  <div id="proposal-builder" class="settings-panel" style="margin-top: 40px;">
+    <div class="settings-title">إنشاء عرض سعر للعميل (New Account)</div>
+    <div class="settings-subtitle">أدخل بيانات العميل وحدد خيارات الباقة لتوليد عرض سعر جاهز للطباعة (PDF) في صفحة جديدة</div>
+
+    <div class="settings-grid" style="margin-bottom: 24px;">
+      <div class="settings-group" style="grid-column: 1 / -1;">
+        <div class="settings-group-title">بيانات العميل والشركة</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 500px; margin: 0 auto 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border);">
+          <div class="field"><label>رقم الاكونت <span style="color: var(--text-3); font-size: 11px;">(لن يظهر في عرض السعر)</span></label><input type="text" id="c-acc-number" class="text-input" dir="ltr" placeholder="مثال: 1024"></div>
+          <div class="field">
+            <label>نوع الاكونت <span style="color: var(--text-3); font-size: 11px;">(لن يظهر في عرض السعر)</span></label>
+            <select id="c-acc-type" class="text-input" onchange="toggleAccTypeOther()">
+              <option value="One Shot">One Shot</option>
+              <option value="ACC">ACC</option>
+              <option value="VIP">VIP</option>
+              <option value="__other__">كتابة اختيار آخر...</option>
+            </select>
+            <input type="text" id="c-acc-type-other" class="text-input" style="margin-top: 8px; display: none;" placeholder="اكتب نوع الاكونت...">
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <div class="field"><label>اسم العميل بالكامل</label><input type="text" id="c-name" class="text-input" placeholder="مثال: أحمد محمد"></div>
+          <div class="field"><label>اسم الشركة</label><input type="text" id="c-company" class="text-input" placeholder="مثال: عيادات الأمل"></div>
+          <div class="field"><label>الموقع الإلكتروني</label><input type="text" id="c-website" class="text-input" dir="ltr" placeholder="www.example.com"></div>
+          <div class="field"><label>تخصص العمل</label><input type="text" id="c-industry" class="text-input" placeholder="مثال: مركز طبي"></div>
+          <div class="field"><label>الإيميل</label><input type="email" id="c-email" class="text-input" dir="ltr" placeholder="client@mail.com"></div>
+          <div class="field"><label>إيميل البيزنس</label><input type="email" id="c-b-email" class="text-input" dir="ltr" placeholder="info@company.com"></div>
+          <div class="field"><label>رقم الهاتف</label><input type="tel" id="c-phone" class="text-input" dir="ltr" placeholder="+201000000000"></div>
+          <div class="field"><label>رقم الواتساب</label><input type="tel" id="c-whatsapp" class="text-input" dir="ltr" placeholder="+201000000000"></div>
+        </div>
+        <div class="field" style="margin-top: 16px;">
+          <label>ملاحظات عن الشركة</label>
+          <textarea id="c-comment" class="text-input" style="width: 100%; height: 80px; resize: vertical;" placeholder="أي ملاحظات إضافية بخصوص العميل أو الاتفاق..."></textarea>
+        </div>
+        <div class="field" style="margin-top: 16px;">
+          <label>الملاحظات الشخصية <span style="color: var(--text-3); font-size: 11px;">(لن تظهر في عرض الـ PDF)</span></label>
+          <textarea id="c-private-note" class="text-input" style="width: 100%; height: 80px; resize: vertical; border-color: var(--blue);" placeholder="ملاحظات خاصة لك ولفريق العمل فقط..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-grid">
+      <div class="settings-group">
+        <div class="settings-group-title">1. العملة المحددة</div>
+        <div class="radio-group">
+          <label><input type="radio" name="prop-curr" value="egp" checked> جنية مصري</label>
+          <label><input type="radio" name="prop-curr" value="usd"> دولار امريكي</label>
+        </div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-group-title">2. الباقة الأساسية</div>
+        <div class="radio-group">
+          <label><input type="radio" name="prop-pkg" value="s"> Starter</label>
+          <label><input type="radio" name="prop-pkg" value="g" checked> Growth</label>
+          <label><input type="radio" name="prop-pkg" value="p"> Premium</label>
+        </div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-group-title">3. نظام الدفع</div>
+        <div class="radio-group">
+          <label><input type="radio" name="prop-pay" value="monthly" checked> اشتراك شهري</label>
+          <label><input type="radio" name="prop-pay" value="onetime"> دفعة واحدة</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="settings-grid" style="margin-top: 24px;">
+      <div class="settings-group" style="grid-column: 1 / -1;">
+        <div class="settings-group-title">ملخص أسعار الباقة المحددة (يُحدَّث تلقائياً)</div>
+        <table class="addons-table" style="margin-top: 0;">
+          <thead>
+            <tr>
+              <th style="text-align: right;">العملة</th>
+              <th style="text-align: center;">رسوم الإعداد</th>
+              <th style="text-align: center;">الاشتراك الشهري</th>
+              <th style="text-align: center;">الدفعة الواحدة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 600; color: var(--text-1);">🇪🇬 جنية مصري</td>
+              <td style="text-align: center;" id="sum-egp-setup">-</td>
+              <td style="text-align: center;" id="sum-egp-monthly">-</td>
+              <td style="text-align: center;" id="sum-egp-onetime">-</td>
+            </tr>
+            <tr>
+              <td style="font-weight: 600; color: var(--text-1);">🇸🇦 دولار أمريكي</td>
+              <td style="text-align: center;" id="sum-usd-setup">-</td>
+              <td style="text-align: center;" id="sum-usd-monthly">-</td>
+              <td style="text-align: center;" id="sum-usd-onetime">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="proposal-actions">
+       <button class="btn-action btn-action-client" onclick="generateProposalPDF()">📄 تجهيز عرض السعر للعميل</button>
+       <button class="btn-action btn-action-internal" onclick="generateInternalProposalPDF()">🔒 تجهيز العرض الداخلي</button>
+       <button class="btn-action btn-action-ghost" onclick="clearNewAccountForm()">🗑️ مسح</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── DEFAULT VALUES ──
+const DEFAULTS = {
+  egp: {
+    s: { setup: 5000, monthly: 2000 },
+    g: { setup: 7500, monthly: 3000 },
+    p: { setup: 11000, monthly: 4700 }
+  },
+  usd: {
+    s: { setup: 450, monthly: 190 },
+    g: { setup: 600, monthly: 270 },
+    p: { setup: 800, monthly: 370 }
+  }
+};
+
+let curr = 'egp';
+
+function fmt(n, c) {
+  const s = Math.round(n).toLocaleString('en-US');
+  return c === 'usd' ? '$' + s : s + ' ج';
+}
+
+function getInput(id) {
+  return parseFloat(document.getElementById(id).value) || 0;
+}
+
+function getActiveAddonsData(selectedCurr) {
+  let addons = [];
+  document.querySelectorAll('.addon-row').forEach(row => {
+    const toggle = row.querySelector('.addon-toggle');
+    if (toggle && toggle.checked) {
+      const name = row.querySelector('.addon-name-cell').textContent;
+      const inputs = row.querySelectorAll('.addon-input');
+      let setup = 0, monthly = 0;
+      if (selectedCurr === 'egp') {
+         setup = parseFloat(inputs[0].value) || 0;
+         monthly = parseFloat(inputs[1].value) || 0;
+      } else {
+         setup = parseFloat(inputs[2].value) || 0;
+         monthly = parseFloat(inputs[3].value) || 0;
+      }
+      addons.push({name, setup, monthly});
+    }
+  });
+  return addons;
+}
+
+function getAddonTotals(currency = curr) {
+  let totals = { setup: 0, monthly: 0 };
+  const addons = getActiveAddonsData(currency);
+  addons.forEach(a => {
+      totals.setup += a.setup;
+      totals.monthly += a.monthly;
+  });
+  return totals;
+}
+
+function updatePrices() {
+  const pkgs = ['s', 'g', 'p'];
+  const MONTHS = 12;
+  const addon = getAddonTotals(curr);
+
+  pkgs.forEach(pk => {
+    const baseSetup = getInput(`cfg-${pk}-setup-${curr}`);
+    const baseMonthly = getInput(`cfg-${pk}-monthly-${curr}`);
+
+    const setup   = baseSetup + addon.setup;
+    const monthly = baseMonthly + addon.monthly;
+    const annual  = setup + monthly * MONTHS;
+    const onetime = setup + monthly * 6;
+    const saving  = annual - onetime;
+
+    document.getElementById(`${pk}-setup`).textContent   = fmt(setup, curr);
+    document.getElementById(`${pk}-monthly`).textContent = fmt(monthly, curr);
+    document.getElementById(`${pk}-annual`).textContent  = fmt(annual, curr);
+    document.getElementById(`${pk}-onetime`).textContent = fmt(onetime, curr);
+    document.getElementById(`${pk}-save`).textContent    = fmt(saving, curr);
+  });
+
+  calcROI();
+  updateSummaryTable();
+}
+
+function updateSummaryTable() {
+  const pkg = document.querySelector('input[name="prop-pkg"]:checked').value || 'g';
+
+  const baseSetupEgp = getInput(`cfg-${pkg}-setup-egp`);
+  const baseMonthlyEgp = getInput(`cfg-${pkg}-monthly-egp`);
+  
+  const baseSetupUsd = getInput(`cfg-${pkg}-setup-usd`);
+  const baseMonthlyUsd = getInput(`cfg-${pkg}-monthly-usd`);
+
+  const addonsEgp = getAddonTotals('egp');
+  const addonsUsd = getAddonTotals('usd');
+
+  const totalEgpSetup = baseSetupEgp + addonsEgp.setup;
+  const totalEgpMonthly = baseMonthlyEgp + addonsEgp.monthly;
+  const totalEgpOnetime = totalEgpSetup + (totalEgpMonthly * 6);
+
+  const totalUsdSetup = baseSetupUsd + addonsUsd.setup;
+  const totalUsdMonthly = baseMonthlyUsd + addonsUsd.monthly;
+  const totalUsdOnetime = totalUsdSetup + (totalUsdMonthly * 6);
+
+  document.getElementById('sum-egp-setup').textContent = fmt(totalEgpSetup, 'egp');
+  document.getElementById('sum-egp-monthly').textContent = fmt(totalEgpMonthly, 'egp');
+  document.getElementById('sum-egp-onetime').textContent = fmt(totalEgpOnetime, 'egp');
+
+  document.getElementById('sum-usd-setup').textContent = fmt(totalUsdSetup, 'usd');
+  document.getElementById('sum-usd-monthly').textContent = fmt(totalUsdMonthly, 'usd');
+  document.getElementById('sum-usd-onetime').textContent = fmt(totalUsdOnetime, 'usd');
+}
+
+// أضف مستمع للأحداث لتحديث الجداول عند تغيير الباقة في نموذج إنشاء الحساب
+document.querySelectorAll('input[name="prop-pkg"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        calcROI();
+        updateSummaryTable();
+    });
+});
+
+function setCurrency(c) {
+  curr = c;
+  document.querySelectorAll('.toggle button').forEach((b, i) => {
+    b.classList.toggle('active', (i === 0 && c === 'egp') || (i === 1 && c === 'usd'));
+  });
+  updatePrices();
+}
+
+function calcROI() {
+  const subEGP = getInput('roi-sub-egp');
+  const subUSD = getInput('roi-sub-usd');
+
+  const apptCount = getInput('roi-appt-count');
+  const noShow    = getInput('roi-no-show') / 100;
+  const improve   = getInput('roi-improve') / 100;
+  const inquiries = getInput('roi-inquiries');
+  const convert   = getInput('roi-convert') / 100;
+  const newBookings = Math.round(inquiries * convert);
+
+  // EGP
+  const apptEGP  = getInput('roi-appt-egp');
+  const lossEGP  = apptCount * noShow * apptEGP;
+  const saveEGP  = lossEGP * improve;
+  const extraEGP = newBookings * apptEGP;
+  const netEGP   = saveEGP + extraEGP - subEGP;
+  const roiEGP   = subEGP > 0 ? (netEGP * 12 / subEGP) * 100 : 0;
+  const pbEGP    = netEGP > 0 ? Math.ceil(subEGP / netEGP) : '—';
+
+  document.getElementById('egp-loss').textContent     = Math.round(lossEGP).toLocaleString('en-US');
+  document.getElementById('egp-saving').textContent   = Math.round(saveEGP).toLocaleString('en-US');
+  document.getElementById('egp-bookings').textContent = newBookings.toLocaleString('en-US');
+  document.getElementById('egp-extra').textContent    = Math.round(extraEGP).toLocaleString('en-US');
+  document.getElementById('egp-net').textContent      = Math.round(netEGP).toLocaleString('en-US');
+  document.getElementById('egp-roi').textContent      = Math.round(roiEGP).toLocaleString('en-US');
+  document.getElementById('egp-payback').textContent  = typeof pbEGP === 'number' ? pbEGP : pbEGP;
+
+  // USD
+  const apptUSD  = getInput('roi-appt-usd');
+  const lossUSD  = apptCount * noShow * apptUSD;
+  const saveUSD  = lossUSD * improve;
+  const extraUSD = newBookings * apptUSD;
+  const netUSD   = saveUSD + extraUSD - subUSD;
+  const roiUSD   = subUSD > 0 ? (netUSD * 12 / subUSD) * 100 : 0;
+  const pbUSD    = netUSD > 0 ? Math.ceil(subUSD / netUSD) : '—';
+
+  document.getElementById('usd-loss').textContent     = Math.round(lossUSD).toLocaleString('en-US');
+  document.getElementById('usd-saving').textContent   = Math.round(saveUSD).toLocaleString('en-US');
+  document.getElementById('usd-bookings').textContent = newBookings.toLocaleString('en-US');
+  document.getElementById('usd-extra').textContent    = Math.round(extraUSD).toLocaleString('en-US');
+  document.getElementById('usd-net').textContent      = Math.round(netUSD).toLocaleString('en-US');
+  document.getElementById('usd-roi').textContent      = Math.round(roiUSD).toLocaleString('en-US');
+  document.getElementById('usd-payback').textContent  = typeof pbUSD === 'number' ? pbUSD : pbUSD;
+}
+
+function resetDefaults() {
+  const d = DEFAULTS[curr];
+  ['s','g','p'].forEach(pk => {
+    document.getElementById(`cfg-${pk}-setup-${curr}`).value   = d[pk].setup;
+    document.getElementById(`cfg-${pk}-monthly-${curr}`).value = d[pk].monthly;
+  });
+  updatePrices();
+}
+
+function addAddon() {
+  const nameInput = document.getElementById('new-addon-name');
+  const name = nameInput.value.trim();
+  if (!name) { nameInput.focus(); return; }
+
+  const tbody = document.getElementById('addons-tbody');
+  const tr = document.createElement('tr');
+  tr.className = 'addon-row';
+  tr.innerHTML = `
+    <td class="addon-name-cell">${name}</td>
+    <td><input class="addon-input" type="number" value="0" oninput="updatePrices()"></td>
+    <td><input class="addon-input" type="number" value="0" oninput="updatePrices()"></td>
+    <td><input class="addon-input" type="number" value="0" oninput="updatePrices()"></td>
+    <td><input class="addon-input" type="number" value="0" oninput="updatePrices()"></td>
+    <td class="addon-toggle-cell"><input type="checkbox" class="addon-toggle" onchange="updatePrices()"></td>
+    <td><button class="addon-delete-btn" onclick="this.closest('tr').remove(); updatePrices()">حذف</button></td>
+  `;
+  tbody.appendChild(tr);
+  nameInput.value = '';
+  nameInput.focus();
+}
+
+// ── CLEAR AND SUBMIT ──
+function toggleAccTypeOther() {
+  const sel = document.getElementById('c-acc-type');
+  const other = document.getElementById('c-acc-type-other');
+  other.style.display = (sel.value === '__other__') ? 'block' : 'none';
+}
+
+function getAccType() {
+  const sel = document.getElementById('c-acc-type');
+  if (sel.value === '__other__') {
+    return document.getElementById('c-acc-type-other').value.trim();
+  }
+  return sel.value;
+}
+
+// ── BUILD PLAIN-TEXT PROPOSAL BODY (shared by both email directions) ──
+// ── SHARED: compute pricing breakdown for the selected package/currency/payment plan ──
+function computeProposalPricing() {
+  const propCurr = document.querySelector('input[name="prop-curr"]:checked').value;
+  const propPkg = document.querySelector('input[name="prop-pkg"]:checked').value;
+  const propPay = document.querySelector('input[name="prop-pay"]:checked').value;
+  const pkgNames = { s: 'Starter', g: 'Growth', p: 'Premium' };
+  const selectedPkgName = pkgNames[propPkg];
+
+  const baseSetup = getInput(`cfg-${propPkg}-setup-${propCurr}`);
+  const baseMonthly = getInput(`cfg-${propPkg}-monthly-${propCurr}`);
+  const baseOnetime = baseSetup + (baseMonthly * 6);
+
+  const activeAddons = getActiveAddonsData(propCurr);
+  let addonsSetup = 0, addonsMonthly = 0;
+  activeAddons.forEach(a => { addonsSetup += a.setup; addonsMonthly += a.monthly; });
+
+  const totalSetup = baseSetup + addonsSetup;
+  const totalMonthly = baseMonthly + addonsMonthly;
+  const totalOnetime = totalSetup + (totalMonthly * 6);
+
+  return { propCurr, propPkg, propPay, selectedPkgName, baseSetup, baseMonthly, baseOnetime, activeAddons, totalSetup, totalMonthly, totalOnetime };
+}
+
+function clearNewAccountForm() {
+  const fields = ['c-name', 'c-company', 'c-website', 'c-industry', 'c-email', 'c-b-email', 'c-phone', 'c-whatsapp', 'c-comment', 'c-private-note', 'c-acc-number', 'c-acc-type-other'];
+  fields.forEach(f => {
+    const el = document.getElementById(f);
+    if(el) el.value = '';
+  });
+  document.getElementById('c-acc-type').value = 'One Shot';
+  toggleAccTypeOther();
+  
+  document.querySelector('input[name="prop-curr"][value="egp"]').checked = true;
+  document.querySelector('input[name="prop-pkg"][value="g"]').checked = true;
+  document.querySelector('input[name="prop-pay"][value="monthly"]').checked = true;
+  
+  calcROI();
+  updateSummaryTable();
+}
+
+// ── GENERATE PDF IN NEW TAB ──
+function generateProposalPDF() {
+  const cName = document.getElementById('c-name').value;
+  const cCompany = document.getElementById('c-company').value.trim();
+  const cWebsite = document.getElementById('c-website').value;
+  const cIndustry = document.getElementById('c-industry').value;
+  const cEmail = document.getElementById('c-email').value;
+  const cBEmail = document.getElementById('c-b-email').value;
+  const cPhone = document.getElementById('c-phone').value;
+  const cWhatsapp = document.getElementById('c-whatsapp').value;
+  const cComment = document.getElementById('c-comment').value;
+
+  const propCurr = document.querySelector('input[name="prop-curr"]:checked').value;
+  const propPkg = document.querySelector('input[name="prop-pkg"]:checked').value;
+  const propPay = document.querySelector('input[name="prop-pay"]:checked').value;
+
+  const pkgNames = { s: 'Starter', g: 'Growth', p: 'Premium' };
+  const selectedPkgName = pkgNames[propPkg];
+
+  const baseSetup = getInput(`cfg-${propPkg}-setup-${propCurr}`);
+  const baseMonthly = getInput(`cfg-${propPkg}-monthly-${propCurr}`);
+  const baseOnetime = baseSetup + (baseMonthly * 6);
+
+  const activeAddons = getActiveAddonsData(propCurr);
+  let addonsSetup = 0;
+  let addonsMonthly = 0;
+  activeAddons.forEach(a => {
+      addonsSetup += a.setup;
+      addonsMonthly += a.monthly;
+  });
+
+  const totalSetup = baseSetup + addonsSetup;
+  const totalMonthly = baseMonthly + addonsMonthly;
+  const totalOnetime = totalSetup + (totalMonthly * 6);
+
+  let tableHtml = `
+     <h3 style="margin-bottom:12px; color:#111;">تفاصيل الخدمة المطلوبة: باقة ${selectedPkgName}</h3>
+     <table>
+       <tr>
+          <th style="text-align:right;">البند</th>
+          ${propPay === 'monthly' ? '<th>رسوم الإعداد</th>' : ''}
+          <th>${propPay === 'monthly' ? 'الاشتراك الشهري' : 'تكلفة الدفعة الواحدة'}</th>
+       </tr>
+       <tr>
+          <td>الباقة الأساسية (${selectedPkgName})</td>
+          ${propPay === 'monthly' ? `<td style="text-align:center;">${fmt(baseSetup, propCurr)}</td>` : ''}
+          <td style="text-align:center;">${fmt(propPay === 'monthly' ? baseMonthly : baseOnetime, propCurr)}</td>
+       </tr>
+  `;
+
+  if(activeAddons.length > 0) {
+      tableHtml += `<tr><td colspan="${propPay === 'monthly' ? '3' : '2'}" style="background:#fafafa; font-weight:bold; color:#555;">الباقات الإضافية (Add-ons)</td></tr>`;
+      activeAddons.forEach(a => {
+          const aOnetime = a.setup + (a.monthly * 6);
+          tableHtml += `
+            <tr>
+              <td>- ${a.name}</td>
+              ${propPay === 'monthly' ? `<td style="text-align:center;">${fmt(a.setup, propCurr)}</td>` : ''}
+              <td style="text-align:center;">${fmt(propPay === 'monthly' ? a.monthly : aOnetime, propCurr)}</td>
+            </tr>
+          `;
+      });
+  }
+
+  tableHtml += `
+       <tr style="font-weight:bold; background: rgba(0,200,150,0.1);">
+          <td style="font-size:18px;">إجمالي التكلفة</td>
+          ${propPay === 'monthly' ? `<td style="text-align:center; font-size:18px; color:#00a07a;">${fmt(totalSetup, propCurr)}</td>` : ''}
+          <td style="text-align:center; font-size:18px; color:#00a07a;">${fmt(propPay === 'monthly' ? totalMonthly : totalOnetime, propCurr)}</td>
+       </tr>
+     </table>
+  `;
+
+  if (propPay === 'monthly') {
+     tableHtml += `<p class="note">* <strong>ملاحظة:</strong> نظام العقد السنوي يتطلب سداد (رسوم الإعداد) كدفعة أولى لمرة واحدة، بالإضافة إلى سداد (الاشتراك الشهري) الموضح أعلاه في بداية كل شهر.</p>`;
+  } else {
+     tableHtml += `<p class="note">* <strong>ملاحظة:</strong> في نظام الدفعة الواحدة يكون الدعم الفني متاحاً لمدة 30 يوم من التشغيل وينتهي أي التزام.</p>`;
+  }
+
+  const titleText = cCompany ? `عرض السعر (${cCompany})` : 'عرض السعر';
+
+  const fullHtml = `
+  <!DOCTYPE html>
+  <html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <title>${titleText}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: #fff; color: #111; padding: 40px; max-width: 1000px; margin: 0 auto; line-height: 1.6; }
+      .header { border-bottom: 2px solid #00c896; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end; }
+      .client-info { margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 15px; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+      .client-info div { margin-bottom: 8px; }
+      .client-info strong { color: #555f6e; display: inline-block; width: 130px; }
+      .full-width { grid-column: 1 / -1; }
+      table { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
+      th, td { border: 1px solid #ddd; padding: 14px; }
+      th { background: #f0f2f5; text-align: center; color: #111; }
+      td.left { text-align: left; }
+      .note { font-size: 15px; color: #555f6e; line-height: 1.8; }
+      .btn-print { background: #00c896; color: #111; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 600; transition: background 0.2s;}
+      .btn-print:hover { background: #00e0a8; }
+      @media print {
+        .no-print { display: none; }
+        body { padding: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-print" style="text-align: left; margin-bottom: 20px;">
+      <button class="btn-print" onclick="window.print()">🖨️ طباعة كـ PDF</button>
+    </div>
+    
+    <div class="header">
+      <div>
+         <h1 style="margin: 0 0 5px 0;">${titleText}</h1>
+         <p style="margin: 0; color: #555f6e; font-size: 14px;">الاتفاق الرسمي للخدمات المقدمة</p>
+      </div>
+      <div style="text-align: left;">
+         <h2 style="margin: 0;">UNLMTD AGNCY</h2>
+         <a href="https://unlmtd-ai-agncy.space" style="color: #00c896; text-decoration: none; font-size: 14px;">unlmtd-ai-agncy.space</a>
+      </div>
+    </div>
+
+    <div class="client-info">
+      <div><strong>اسم العميل:</strong> ${cName || '-'}</div>
+      <div><strong>الشركة:</strong> ${cCompany || '-'}</div>
+      <div><strong>تخصص العمل:</strong> ${cIndustry || '-'}</div>
+      <div style="text-align: right;"><strong>الموقع:</strong> <span dir="ltr">${cWebsite || '-'}</span></div>
+      <div style="text-align: right;"><strong>الإيميل:</strong> <span dir="ltr">${cEmail || '-'}</span></div>
+      <div style="text-align: right;"><strong>إيميل العمل:</strong> <span dir="ltr">${cBEmail || '-'}</span></div>
+      <div style="text-align: right;"><strong>الهاتف:</strong> <span dir="ltr">${cPhone || '-'}</span></div>
+      <div style="text-align: right;"><strong>الواتساب:</strong> <span dir="ltr">${cWhatsapp || '-'}</span></div>
+      ${cComment ? `<div class="full-width"><strong>ملاحظات:</strong><br><span style="color:#111;">${cComment.replace(/\n/g, '<br>')}</span></div>` : ''}
+    </div>
+
+    ${tableHtml}
+
+  </body>
+  </html>
+  `;
+
+  const newWin = window.open('', '_blank');
+  newWin.document.write(fullHtml);
+  newWin.document.close();
+}
+
+// ── GENERATE INTERNAL PROPOSAL (full details, distinct dark design) ──
+function generateInternalProposalPDF() {
+  const cName = document.getElementById('c-name').value;
+  const cCompany = document.getElementById('c-company').value.trim();
+  const cWebsite = document.getElementById('c-website').value;
+  const cIndustry = document.getElementById('c-industry').value;
+  const cEmail = document.getElementById('c-email').value;
+  const cBEmail = document.getElementById('c-b-email').value;
+  const cPhone = document.getElementById('c-phone').value;
+  const cWhatsapp = document.getElementById('c-whatsapp').value;
+  const cComment = document.getElementById('c-comment').value;
+  const cAccNumber = document.getElementById('c-acc-number').value;
+  const cAccType = getAccType();
+  const cPrivateNote = document.getElementById('c-private-note').value;
+
+  const p = computeProposalPricing();
+  const { propCurr, propPay, selectedPkgName, baseSetup, baseMonthly, baseOnetime, activeAddons, totalSetup, totalMonthly, totalOnetime } = p;
+
+  let tableHtml = `
+     <h3 style="margin-bottom:12px; color:#f0f2f5;">تفاصيل الخدمة: باقة ${selectedPkgName}</h3>
+     <table>
+       <tr>
+          <th style="text-align:right;">البند</th>
+          ${propPay === 'monthly' ? '<th>رسوم الإعداد</th>' : ''}
+          <th>${propPay === 'monthly' ? 'الاشتراك الشهري' : 'تكلفة الدفعة الواحدة'}</th>
+       </tr>
+       <tr>
+          <td>الباقة الأساسية (${selectedPkgName})</td>
+          ${propPay === 'monthly' ? `<td style="text-align:center;">${fmt(baseSetup, propCurr)}</td>` : ''}
+          <td style="text-align:center;">${fmt(propPay === 'monthly' ? baseMonthly : baseOnetime, propCurr)}</td>
+       </tr>
+  `;
+
+  if (activeAddons.length > 0) {
+    tableHtml += `<tr><td colspan="${propPay === 'monthly' ? '3' : '2'}" style="background:#1a1e25; font-weight:bold; color:#8a93a2;">الباقات الإضافية (Add-ons)</td></tr>`;
+    activeAddons.forEach(a => {
+      const aOnetime = a.setup + (a.monthly * 6);
+      tableHtml += `
+        <tr>
+          <td>- ${a.name}</td>
+          ${propPay === 'monthly' ? `<td style="text-align:center;">${fmt(a.setup, propCurr)}</td>` : ''}
+          <td style="text-align:center;">${fmt(propPay === 'monthly' ? a.monthly : aOnetime, propCurr)}</td>
+        </tr>
+      `;
+    });
+  }
+
+  tableHtml += `
+       <tr style="font-weight:bold; background: rgba(77,159,255,0.12);">
+          <td style="font-size:18px;">إجمالي التكلفة</td>
+          ${propPay === 'monthly' ? `<td style="text-align:center; font-size:18px; color:#4d9fff;">${fmt(totalSetup, propCurr)}</td>` : ''}
+          <td style="text-align:center; font-size:18px; color:#4d9fff;">${fmt(propPay === 'monthly' ? totalMonthly : totalOnetime, propCurr)}</td>
+       </tr>
+     </table>
+  `;
+
+  if (propPay === 'monthly') {
+    tableHtml += `<p class="note">* نظام العقد السنوي يتطلب سداد رسوم الإعداد كدفعة أولى، بالإضافة إلى الاشتراك الشهري في بداية كل شهر.</p>`;
+  } else {
+    tableHtml += `<p class="note">* في نظام الدفعة الواحدة يكون الدعم الفني متاحاً لمدة 30 يوم من التشغيل وينتهي أي التزام.</p>`;
+  }
+
+  const titleText = cCompany ? `العرض الداخلي (${cCompany})` : 'العرض الداخلي';
+
+  const fullHtml = `
+  <!DOCTYPE html>
+  <html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <title>${titleText}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+      body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: #0d0f12; color: #f0f2f5; padding: 40px; max-width: 1000px; margin: 0 auto; line-height: 1.6; }
+      .badge-internal { display: inline-block; background: rgba(77,159,255,0.15); color: #4d9fff; border: 1px solid rgba(77,159,255,0.3); font-size: 12px; font-weight: 600; letter-spacing: 1px; padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; text-transform: uppercase; }
+      .header { border-bottom: 2px solid #4d9fff; padding-bottom: 18px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end; }
+      .header h1 { margin: 0 0 5px 0; color: #f0f2f5; }
+      .header p { margin: 0; color: #8a93a2; font-size: 14px; }
+      .account-strip { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 25px; }
+      .account-chip { background: #181c22; border: 1px solid #2e3540; border-radius: 10px; padding: 10px 18px; font-size: 14px; }
+      .account-chip strong { color: #8a93a2; font-weight: 500; margin-left: 6px; }
+      .account-chip span { color: #f0f2f5; font-weight: 600; }
+      .client-info { margin-bottom: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 15px; background: #13161b; padding: 20px; border-radius: 10px; border: 1px solid #252a33; }
+      .client-info div { margin-bottom: 8px; }
+      .client-info strong { color: #8a93a2; display: inline-block; width: 130px; }
+      .full-width { grid-column: 1 / -1; }
+      .private-note-box { margin-bottom: 25px; background: rgba(77,159,255,0.07); border: 1px solid rgba(77,159,255,0.25); border-radius: 10px; padding: 18px 20px; }
+      .private-note-box strong { color: #4d9fff; display: block; margin-bottom: 8px; font-size: 14px; }
+      .private-note-box p { color: #f0f2f5; font-size: 14px; white-space: pre-wrap; }
+      table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+      th, td { border: 1px solid #252a33; padding: 14px; }
+      th { background: #181c22; text-align: center; color: #f0f2f5; }
+      td { color: #d8dde4; }
+      .note { font-size: 14px; color: #8a93a2; line-height: 1.8; }
+      .btn-print { background: #4d9fff; color: #0d0f12; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 15px; font-weight: 700; transition: background 0.2s;}
+      .btn-print:hover { background: #6cb0ff; }
+      @media print {
+        .no-print { display: none; }
+        body { padding: 0; background: #fff; color: #111; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-print" style="text-align: left; margin-bottom: 20px;">
+      <button class="btn-print" onclick="window.print()">🖨️ طباعة كـ PDF</button>
+    </div>
+
+    <div class="header">
+      <div>
+         <span class="badge-internal">🔒 نسخة داخلية — للفريق فقط</span>
+         <h1>${titleText}</h1>
+         <p>كل التفاصيل بما فيها بيانات الحساب والملاحظات الخاصة</p>
+      </div>
+      <div style="text-align: left;">
+         <h2 style="margin: 0;">UNLMTD AGNCY</h2>
+         <a href="https://unlmtd-ai-agncy.space" style="color: #4d9fff; text-decoration: none; font-size: 14px;">unlmtd-ai-agncy.space</a>
+      </div>
+    </div>
+
+    <div class="account-strip">
+      <div class="account-chip"><strong>رقم الاكونت:</strong><span>${cAccNumber || '-'}</span></div>
+      <div class="account-chip"><strong>نوع الاكونت:</strong><span>${cAccType || '-'}</span></div>
+    </div>
+
+    <div class="client-info">
+      <div><strong>اسم العميل:</strong> ${cName || '-'}</div>
+      <div><strong>الشركة:</strong> ${cCompany || '-'}</div>
+      <div><strong>تخصص العمل:</strong> ${cIndustry || '-'}</div>
+      <div style="text-align: right;"><strong>الموقع:</strong> <span dir="ltr">${cWebsite || '-'}</span></div>
+      <div style="text-align: right;"><strong>الإيميل:</strong> <span dir="ltr">${cEmail || '-'}</span></div>
+      <div style="text-align: right;"><strong>إيميل العمل:</strong> <span dir="ltr">${cBEmail || '-'}</span></div>
+      <div style="text-align: right;"><strong>الهاتف:</strong> <span dir="ltr">${cPhone || '-'}</span></div>
+      <div style="text-align: right;"><strong>الواتساب:</strong> <span dir="ltr">${cWhatsapp || '-'}</span></div>
+      ${cComment ? `<div class="full-width"><strong>ملاحظات عن الشركة:</strong><br><span style="color:#d8dde4;">${cComment.replace(/\n/g, '<br>')}</span></div>` : ''}
+    </div>
+
+    ${cPrivateNote ? `<div class="private-note-box"><strong>🔒 الملاحظات الشخصية (داخلية فقط)</strong><p>${cPrivateNote.replace(/\n/g, '<br>')}</p></div>` : ''}
+
+    ${tableHtml}
+
+  </body>
+  </html>
+  `;
+
+  const newWin = window.open('', '_blank');
+  newWin.document.write(fullHtml);
+  newWin.document.close();
+}
+
+// ── INIT ──
+updatePrices();
+</script>
+</body>
+</html>
